@@ -10,6 +10,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<<<<<<< HEAD
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -17,10 +18,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+=======
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+>>>>>>> a0edcf6 (added index.html)
         rel="stylesheet">
 
     <style>
         :root {
+<<<<<<< HEAD
             /* Their Official Brand Colors */
             --brand-blue: #0e3a72;
             --brand-blue-deep: #051324;
@@ -123,6 +131,21 @@
             .whatsapp-float {
                 cursor: auto !important;
             }
+=======
+            --brand-dark: #051324;
+            --brand-blue: #0A2540;
+            --brand-orange: #FF5A00;
+            --surface-light: #F9FAFB;
+            --text-body: #4B5563;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-body);
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+>>>>>>> a0edcf6 (added index.html)
         }
 
         h1,
@@ -132,26 +155,65 @@
         h5,
         h6 {
             font-family: 'Outfit', sans-serif;
+<<<<<<< HEAD
             color: #ffffff;
             font-weight: 800;
+=======
+            color: var(--brand-dark);
+            font-weight: 600;
+>>>>>>> a0edcf6 (added index.html)
             letter-spacing: -0.02em;
         }
 
         .eyebrow {
             font-size: 0.85rem;
+<<<<<<< HEAD
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.2em;
+=======
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+>>>>>>> a0edcf6 (added index.html)
             color: var(--brand-orange);
             display: block;
             margin-bottom: 1rem;
         }
 
+<<<<<<< HEAD
+=======
+        /* --- Scroll Reveal --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+>>>>>>> a0edcf6 (added index.html)
         /* --- Navbar --- */
         .navbar {
             background-color: transparent;
             transition: all 0.4s ease;
             padding: 24px 0;
+<<<<<<< HEAD
             z-index: 10000;
             /* Fixed layering issue */
         }
@@ -161,22 +223,59 @@
             backdrop-filter: blur(15px);
             padding: 16px 0;
             border-bottom: 1px solid var(--glass-border);
+=======
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 16px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Navbar Logo Toggle Logic */
+        .logo-dark {
+            display: none !important;
+        }
+
+        .navbar.scrolled .logo-light {
+            display: none !important;
+        }
+
+        .navbar.scrolled .logo-dark {
+            display: block !important;
+>>>>>>> a0edcf6 (added index.html)
         }
 
         .nav-link {
             font-weight: 500;
             font-size: 0.95rem;
+<<<<<<< HEAD
             color: #ffffff !important;
+=======
+            color: rgba(255, 255, 255, 0.9) !important;
+>>>>>>> a0edcf6 (added index.html)
             margin: 0 16px;
             transition: color 0.3s ease;
         }
 
+<<<<<<< HEAD
         .nav-link:hover {
+=======
+        .navbar.scrolled .nav-link {
+            color: var(--text-body) !important;
+        }
+
+        .nav-link:hover,
+        .navbar.scrolled .nav-link:hover {
+>>>>>>> a0edcf6 (added index.html)
             color: var(--brand-orange) !important;
         }
 
         /* --- Buttons --- */
         .btn-agency {
+<<<<<<< HEAD
             background: linear-gradient(45deg, var(--brand-orange), #ff7a33);
             color: #ffffff;
             font-family: 'Outfit', sans-serif;
@@ -194,12 +293,31 @@
         .btn-agency:hover {
             box-shadow: 0 15px 30px rgba(255, 90, 0, 0.3);
             color: #ffffff;
+=======
+            background-color: var(--brand-orange);
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 16px 40px;
+            border-radius: 8px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-agency:hover {
+            background-color: #E04F00;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 90, 0, 0.2);
+>>>>>>> a0edcf6 (added index.html)
         }
 
         .btn-outline-light-custom {
             background-color: transparent;
             color: #ffffff;
             font-family: 'Outfit', sans-serif;
+<<<<<<< HEAD
             font-weight: 700;
             font-size: 1.05rem;
             padding: 14px 38px;
@@ -329,6 +447,35 @@
         }
 
         .hero-carousel-bg {
+=======
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 14px 38px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-light-custom:hover {
+            border-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            position: relative;
+            background-color: #030812;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Layer 0: Glossy Cool-Toned Blobs */
+        .mesh-bg {
+>>>>>>> a0edcf6 (added index.html)
             position: absolute;
             top: 0;
             left: 0;
@@ -336,16 +483,73 @@
             height: 100%;
             z-index: 0;
             overflow: hidden;
+<<<<<<< HEAD
             background-color: #000;
         }
 
         /* Wrapper controls the crossfade */
         .hero-carousel-slide {
+=======
+            background-color: #030812;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.65;
+            animation: moveBlob 25s infinite alternate ease-in-out;
+        }
+
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 60vw;
+            height: 60vw;
+            background: #0044FF;
+        }
+
+        .blob-2 {
+            bottom: -20%;
+            right: -10%;
+            width: 70vw;
+            height: 70vw;
+            background: #00E5FF;
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            top: 30%;
+            left: 40%;
+            width: 50vw;
+            height: 50vw;
+            background: #8A2BE2;
+            animation-delay: -10s;
+        }
+
+        @keyframes moveBlob {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(5%, 10%) scale(1.1);
+            }
+
+            100% {
+                transform: translate(-5%, -10%) scale(0.9);
+            }
+        }
+
+        /* Layer 1: Dot Pattern Texture */
+        .hero-texture {
+>>>>>>> a0edcf6 (added index.html)
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+<<<<<<< HEAD
             opacity: 0;
             z-index: 0;
             transition: opacity 1.5s ease-in-out;
@@ -479,11 +683,147 @@
         .hero-title-massive span.accent {
             color: var(--brand-orange);
             -webkit-text-stroke: 0;
+=======
+            z-index: 1;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.8) 1.5px, transparent 1.5px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+
+        /* Layer 2: Floating Frosted Glass Elements */
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.0) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            animation: floatShape 15s infinite ease-in-out alternate;
+        }
+
+        .shape-1 {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 60px;
+            border-radius: 50px;
+            bottom: 25%;
+            left: 45%;
+            transform: rotate(35deg);
+            animation-delay: -5s;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            border-radius: 24px;
+            top: 50%;
+            right: 40%;
+            transform: rotate(15deg);
+            animation-delay: -10s;
+        }
+
+        .shape-4 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            bottom: 15%;
+            left: 15%;
+            animation-duration: 12s;
+            animation-delay: -2s;
+            opacity: 0.6;
+        }
+
+        .shape-5 {
+            width: 180px;
+            height: 180px;
+            border-radius: 30px;
+            top: 8%;
+            right: 25%;
+            transform: rotate(45deg);
+            animation-duration: 18s;
+            animation-delay: -7s;
+            opacity: 0.4;
+        }
+
+        @keyframes floatShape {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-50px) rotate(25deg);
+            }
+        }
+
+        /* Layer 3: Dark Overlay for text legibility */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(3, 8, 18, 0.9) 0%, rgba(3, 8, 18, 0.4) 100%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Layer 4: Content */
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            width: 100%;
+            padding-top: 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 100px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+>>>>>>> a0edcf6 (added index.html)
         }
 
         .dynamic-word-wrapper {
             display: inline-block;
+<<<<<<< HEAD
             min-width: 220px;
+=======
+            min-width: 240px;
+            color: var(--brand-orange);
+>>>>>>> a0edcf6 (added index.html)
         }
 
         #hero-dynamic-word {
@@ -491,6 +831,7 @@
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
+<<<<<<< HEAD
         .hero-subtitle {
             font-size: clamp(1rem, 1.5vw, 1.15rem);
             color: #ffffff;
@@ -571,12 +912,97 @@
 
             100% {
                 transform: translateX(-50%);
+=======
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 550px;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        /* --- Infinite Card Scroller (Right Side) --- */
+        .scroller-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .scroller-title {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card-scroller-window {
+            height: 480px;
+            width: 100%;
+            max-width: 320px;
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+
+        .card-track {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: scrollVertical 20s linear infinite;
+        }
+
+        .card-track:hover {
+            animation-play-state: paused;
+        }
+
+        .client-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 30px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+        }
+
+        .client-card:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-color: var(--brand-orange);
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes scrollVertical {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(calc(-50% - 10px));
+>>>>>>> a0edcf6 (added index.html)
             }
         }
 
         /* --- Section Spacing & Structure --- */
         .section-padding {
             padding: 120px 0;
+<<<<<<< HEAD
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -727,19 +1153,81 @@
             background: rgba(255, 255, 255, 0.08);
             border-color: var(--brand-orange);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+=======
+        }
+
+        .bg-light-surface {
+            background-color: var(--surface-light);
+        }
+
+        /* --- NEW: Foundation Section --- */
+        .foundation-section {
+            background-color: var(--brand-dark);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .foundation-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(255, 90, 0, 0.08), transparent 50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .foundation-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 40px;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .foundation-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 90, 0, 0.5);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* General Sections */
+        .capability-card {
+            background: var(--surface-light);
+            border-radius: 12px;
+            padding: 40px 30px;
+            height: 100%;
+            transition: all 0.3s;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+>>>>>>> a0edcf6 (added index.html)
         }
 
         .icon-wrap {
             width: 60px;
             height: 60px;
+<<<<<<< HEAD
             background: rgba(255, 255, 255, 0.1);
             color: #ffffff;
+=======
+            background: rgba(255, 90, 0, 0.1);
+            color: var(--brand-orange);
+>>>>>>> a0edcf6 (added index.html)
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             margin-bottom: 24px;
+<<<<<<< HEAD
             transition: 0.3s;
         }
 
@@ -1103,19 +1591,121 @@
         .cta-btn-solid:hover {
             background: #ffffff;
             color: var(--brand-orange);
+=======
+        }
+
+        .why-choose-us {
+            position: relative;
+            background: linear-gradient(to right, rgba(5, 19, 36, 0.95), rgba(5, 19, 36, 0.85)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
+            color: #ffffff;
+            padding: 120px 0;
+        }
+
+        .cta-section {
+            position: relative;
+            padding: 120px 0;
+            background: linear-gradient(rgba(5, 19, 36, 0.9), rgba(5, 19, 36, 0.9)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
+            text-align: center;
+        }
+
+        .portfolio-item {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4/5;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s;
+        }
+
+        .portfolio-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 30px 30px;
+            background: linear-gradient(to top, rgba(5, 19, 36, 0.95) 0%, transparent 100%);
+            color: #fff;
+        }
+
+        .portfolio-item:hover img {
+>>>>>>> a0edcf6 (added index.html)
             transform: scale(1.05);
         }
 
         footer {
+<<<<<<< HEAD
             background-color: #020810;
             padding: 80px 0 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+=======
+            background-color: #030A14;
+            color: #ffffff;
+            padding: 80px 0 30px;
+        }
+
+        /* --- RESPONSIVE MOBILE FIX --- */
+        @media (max-width: 991px) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 0 60px 0;
+            }
+
+            .scroller-container {
+                margin-top: 60px;
+                align-items: flex-start;
+            }
+
+            .scroller-title {
+                text-align: left;
+            }
+
+            .card-scroller-window {
+                height: 120px;
+                max-width: 100%;
+                mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+                -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            }
+
+            .card-track {
+                flex-direction: row;
+                width: max-content;
+                animation: scrollHorizontal 20s linear infinite;
+            }
+
+            .client-card {
+                width: 220px;
+                height: 100px;
+            }
+
+            .shape-3,
+            .shape-4,
+            .shape-5 {
+                display: none;
+            }
+        }
+
+        @keyframes scrollHorizontal {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-50% - 10px));
+            }
+>>>>>>> a0edcf6 (added index.html)
         }
     </style>
 </head>
 
 <body>
 
+<<<<<<< HEAD
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
@@ -1125,16 +1715,34 @@
                 <img src="assets/img/logo.png" alt="AI Media Logo" height="55">
             </a>
             <button class="navbar-toggler border-0 magnetic-item" type="button" data-bs-toggle="collapse"
+=======
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="assets/img/logo.png" alt="AI Media Logo" height="60" class="logo-light">
+                <img src="assets/img/logo.png" alt="AI Media Logo" height="60" class="logo-dark">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+>>>>>>> a0edcf6 (added index.html)
                 data-bs-target="#navbarContent">
                 <i class="fa-solid fa-bars text-white" id="navIcon"></i>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
                 <ul class="navbar-nav align-items-lg-center">
+<<<<<<< HEAD
                     <li class="nav-item"><a class="nav-link magnetic-item" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link magnetic-item" href="#capabilities">Capabilities</a></li>
                     <li class="nav-item"><a class="nav-link magnetic-item" href="#portfolio">Portfolio</a></li>
                     <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
                         <a href="#contact" class="btn btn-agency magnetic-btn">Partner With Us</a>
+=======
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#foundation">Foundation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#capabilities">Capabilities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a href="#contact" class="btn btn-agency" style="padding: 10px 24px;">Partner With Us</a>
+>>>>>>> a0edcf6 (added index.html)
                     </li>
                 </ul>
             </div>
@@ -1142,6 +1750,7 @@
     </nav>
 
     <header class="hero" id="heroSection">
+<<<<<<< HEAD
         <div class="hero-carousel-bg">
             <div class="hero-carousel-slide active">
                 <div class="slide-img"
@@ -1204,10 +1813,75 @@
                 <i class="fa-solid fa-asterisk"></i>
                 <img src="assets/img/mtn.png" alt="MTN Logo" height="40">
                 <i class="fa-solid fa-asterisk"></i>
+=======
+        <div class="mesh-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+
+        <div class="hero-texture"></div>
+
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content container reveal active">
+            <div class="row align-items-center">
+
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <div class="hero-text-area">
+                        <div class="hero-badge">Building the future of Out-of-Home</div>
+
+                        <h1>We help brands <br>
+                            <span class="dynamic-word-wrapper">
+                                <span id="hero-dynamic-word">Innovate.</span>
+                            </span>
+                        </h1>
+
+                        <p>We empower brands through data-driven media strategies and immersive experiential campaigns
+                            that maximize reach, engagement, and ROI.</p>
+
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <a href="#contact" class="btn btn-agency">Start Your Project</a>
+                            <a href="#portfolio" class="btn btn-outline-light-custom">View Asset Portfolio</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 d-flex justify-content-lg-end">
+                    <div class="scroller-container">
+                        <div class="scroller-title">Trusted By Teams At</div>
+
+                        <div class="card-scroller-window">
+                            <div class="card-track">
+                                <div class="client-card">Moniepoint</div>
+                                <div class="client-card">Coca-Cola</div>
+                                <div class="client-card">itel Energy</div>
+                                <div class="client-card">Knorr</div>
+                                <div class="client-card">MTN</div>
+                                <div class="client-card">Moniepoint</div>
+                                <div class="client-card">Coca-Cola</div>
+                                <div class="client-card">itel Energy</div>
+                                <div class="client-card">Knorr</div>
+                                <div class="client-card">MTN</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+>>>>>>> a0edcf6 (added index.html)
             </div>
         </div>
     </header>
 
+<<<<<<< HEAD
     <section id="about" class="section-padding bg-blue-main">
         <div class="container">
             <div class="row align-items-center gx-lg-5">
@@ -1223,11 +1897,28 @@
                         brands connect through creativity, strategy, and experience.</p>
                     <p class="text-white">As a subsidiary of JOTT Productions—a leading asset fabrication company with
                         over 40 years of excellence—we combine strategic thinking with hands-on executional power.</p>
+=======
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center gx-lg-5">
+                <div class="col-lg-6 mb-5 mb-lg-0 reveal">
+                    <img src="assets/img/moniepoint.jpg" class="w-100 rounded-4 shadow-sm"
+                        alt="Agency Strategy Meeting">
+                </div>
+                <div class="col-lg-6 reveal delay-1">
+                    <span class="eyebrow">The Agency</span>
+                    <h2 class="mb-4 display-6 text-dark">Connecting brands with their true audience.</h2>
+                    <p class="fs-5 text-muted mb-4">AI Media & Communications is a dynamic agency established to help
+                        brands connect through creativity, strategy, and experience. </p>
+                    <p>As a subsidiary of JOTT Productions—a leading asset fabrication company with over 40 years of
+                        excellence—we combine strategic thinking with hands-on executional power.</p>
+>>>>>>> a0edcf6 (added index.html)
                 </div>
             </div>
         </div>
     </section>
 
+<<<<<<< HEAD
     <section id="foundation" class="foundation-section">
         <div class="foundation-bg-image"></div>
         <div class="foundation-bg-overlay"></div>
@@ -1252,11 +1943,42 @@
                                 Mission</h4>
                             <p>To empower brands through data-driven media strategies and immersive experiential
                                 campaigns.</p>
+=======
+    <section id="foundation" class="section-padding foundation-section">
+        <div class="foundation-bg"></div>
+        <div class="container position-relative" style="z-index: 1;">
+
+            <div class="row mb-5 reveal">
+                <div class="col-12 text-center">
+                    <span class="eyebrow text-warning">Our Foundation</span>
+                    <h2 class="text-white">Direction & Core Values</h2>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-5 reveal delay-1">
+                    <div class="foundation-card d-flex flex-column justify-content-center">
+                        <div class="mb-5">
+                            <h4 class="text-white mb-3 d-flex align-items-center">
+                                <i class="fa-solid fa-eye text-warning me-3"></i>Our Vision
+                            </h4>
+                            <p class="text-white-50 mb-0" style="font-size: 1.1rem; line-height: 1.7;">To be a leading
+                                integrated marketing agency, pioneering Out-of-Home and experiential solutions.</p>
+                        </div>
+                        <hr class="border-secondary opacity-25 mb-5">
+                        <div>
+                            <h4 class="text-white mb-3 d-flex align-items-center">
+                                <i class="fa-solid fa-bullseye text-warning me-3"></i>Our Mission
+                            </h4>
+                            <p class="text-white-50 mb-0" style="font-size: 1.1rem; line-height: 1.7;">To empower brands
+                                through data-driven media strategies and immersive experiential campaigns.</p>
+>>>>>>> a0edcf6 (added index.html)
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-7">
+<<<<<<< HEAD
                     <div class="row g-4">
                         <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="sleek-value-card magnetic-item">
@@ -1290,10 +2012,44 @@
                                 <i class="fa-solid fa-gem value-icon"></i>
                                 <h5>Excellence</h5>
                                 <p>We pursue the highest industry standards with meticulous precision and execution.</p>
+=======
+                    <div class="row g-4 h-100">
+                        <div class="col-md-6 reveal delay-2">
+                            <div class="foundation-card text-center p-4">
+                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">I</h3>
+                                <h5 class="text-white mt-3">Integrity</h5>
+                                <p class="small text-white-50 mb-0 mt-2">We uphold honesty and transparency in every
+                                    interaction.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal delay-2">
+                            <div class="foundation-card text-center p-4">
+                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">I</h3>
+                                <h5 class="text-white mt-3">Innovation</h5>
+                                <p class="small text-white-50 mb-0 mt-2">We embrace technology and fresh thinking to
+                                    deliver forward-driven solutions.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal delay-3">
+                            <div class="foundation-card text-center p-4">
+                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">C</h3>
+                                <h5 class="text-white mt-3">Creativity</h5>
+                                <p class="small text-white-50 mb-0 mt-2">We transform ideas into compelling and engaging
+                                    brand experiences.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal delay-3">
+                            <div class="foundation-card text-center p-4">
+                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">E</h3>
+                                <h5 class="text-white mt-3">Excellence</h5>
+                                <p class="small text-white-50 mb-0 mt-2">We pursue the highest standards with precision
+                                    and quality execution.</p>
+>>>>>>> a0edcf6 (added index.html)
                             </div>
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
 
             </div>
         </div>
@@ -1336,6 +2092,50 @@
                         <div class="icon-wrap"><i class="fa-solid fa-users-rays"></i></div>
                         <h4 class="mb-3 fs-5 text-white text-uppercase">Experiential</h4>
                         <p class="text-white small mb-0">Crafting memorable brand experiences to drive deep emotional
+=======
+            </div>
+
+        </div>
+    </section>
+
+    <section id="capabilities" class="section-padding bg-light-surface">
+        <div class="container">
+            <div class="text-center max-w-3xl mx-auto mb-5 pb-3 reveal">
+                <span class="eyebrow">Core Capabilities</span>
+                <h2>Integrated Marketing Solutions</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 reveal delay-1">
+                    <div class="capability-card shadow-sm border-0">
+                        <div class="icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
+                        <h4 class="mb-3 fs-5 text-dark">OOH Advertising</h4>
+                        <p class="text-muted small mb-0">Delivering bold visibility that drives awareness through
+                            strategic placements.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal delay-2">
+                    <div class="capability-card shadow-sm border-0">
+                        <div class="icon-wrap"><i class="fa-solid fa-satellite-dish"></i></div>
+                        <h4 class="mb-3 fs-5 text-dark">Digital OOH</h4>
+                        <p class="text-muted small mb-0">Blending creativity and technology to deliver data-driven
+                            outdoor experiences.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal delay-3">
+                    <div class="capability-card shadow-sm border-0">
+                        <div class="icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+                        <h4 class="mb-3 fs-5 text-dark">Media Buying</h4>
+                        <p class="text-muted small mb-0">Maximizing exposure, efficiency, and engagement across media
+                            platforms.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 reveal delay-3">
+                    <div class="capability-card shadow-sm border-0">
+                        <div class="icon-wrap"><i class="fa-solid fa-users-rays"></i></div>
+                        <h4 class="mb-3 fs-5 text-dark">Experiential</h4>
+                        <p class="text-muted small mb-0">Crafting memorable brand experiences to drive deep emotional
+>>>>>>> a0edcf6 (added index.html)
                             connections.</p>
                     </div>
                 </div>
@@ -1343,6 +2143,7 @@
         </div>
     </section>
 
+<<<<<<< HEAD
     <section id="clients" class="clients-bg-section">
         <div class="clients-bg-image"></div>
         <div class="clients-bg-overlay"></div>
@@ -1443,6 +2244,41 @@
                                 <a href="#" class="view-project-btn">Explore Asset <i
                                         class="fa-solid fa-arrow-right ms-2"></i></a>
                             </div>
+=======
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="row align-items-center gx-lg-5">
+                <div class="col-lg-5 mb-5 mb-lg-0 reveal">
+                    <h2 class="text-white mb-4 display-6">Why Partner With Us?</h2>
+                    <p class="text-white-50 fs-5">We bring creative ideas to life with precision, style, and quality
+                        that demand attention in any market.</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        <div class="col-md-6 reveal delay-1">
+                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> Proven Excellence
+                            </h5>
+                            <p class="text-white-50 small">Backed by JOTT Limited's 40 years of fabrication excellence.
+                            </p>
+                        </div>
+                        <div class="col-md-6 reveal delay-2">
+                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> Tailored Strategy
+                            </h5>
+                            <p class="text-white-50 small">A strategic and creative approach tailored specifically to
+                                each brand's unique needs.</p>
+                        </div>
+                        <div class="col-md-6 reveal delay-3">
+                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> Multi-Sector
+                                Expertise</h5>
+                            <p class="text-white-50 small">Deep expertise across FMCGs, corporates, government, tech,
+                                and financial institutions.</p>
+                        </div>
+                        <div class="col-md-6 reveal delay-3">
+                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> End-to-End
+                                Delivery</h5>
+                            <p class="text-white-50 small">Flawless project management designed to generate measurable,
+                                bottom-line outcomes.</p>
+>>>>>>> a0edcf6 (added index.html)
                         </div>
                     </div>
                 </div>
@@ -1450,6 +2286,7 @@
         </div>
     </section>
 
+<<<<<<< HEAD
     <section class="cta-section-structural">
         <div class="cta-bg-image"></div>
         <div class="cta-bg-overlay"></div>
@@ -1473,6 +2310,58 @@
                     </div>
                 </div>
 
+=======
+    <section id="portfolio" class="section-padding">
+        <div class="container">
+            <div class="text-center max-w-3xl mx-auto mb-5 pb-4 reveal">
+                <span class="eyebrow">Asset Portfolio</span>
+                <h2>Prime Visibility Assets</h2>
+                <p class="text-muted">Explore our strategically located, high-traffic advertising assets across Lagos.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4 reveal delay-1">
+                    <div class="portfolio-item shadow-sm">
+                        <img src="assets/img/beacon.PNG" alt="The Beacon Lekki">
+                        <div class="portfolio-content">
+                            <h4 class="text-white mb-1">The Beacon</h4>
+                            <p class="text-warning small mb-0 fw-bold">LED Board • Lekki Phase 1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal delay-2">
+                    <div class="portfolio-item shadow-sm">
+                        <img src="assets/img/momentum.png" alt="The Momentum Ikeja">
+                        <div class="portfolio-content">
+                            <h4 class="text-white mb-1">The Momentum</h4>
+                            <p class="text-warning small mb-0 fw-bold">Wall Drape • Allen Avenue, Ikeja</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal delay-3">
+                    <div class="portfolio-item shadow-sm">
+                        <img src="assets/img/moniepoint.jpg" alt="Investment Building Marina">
+                        <div class="portfolio-content">
+                            <h4 class="text-white mb-1">Investment Building</h4>
+                            <p class="text-warning small mb-0 fw-bold">Wall Panel • Broad Street, Marina</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container px-4 reveal">
+            <div class="cta-content text-white">
+                <h3 class="text-white mb-3 display-6" style="font-family: 'Outfit', sans-serif; font-weight: 600;">Let's
+                    Shape the Future of Your Brand.</h3>
+                <p class="fs-5 mb-4">Whether you need high-impact OOH placements or an unforgettable experiential
+                    activation, our team is
+                    ready to turn your vision into a measurable reality.</p>
+                <a href="#contact" class="btn btn-agency mt-2">Start Your Project</a>
+>>>>>>> a0edcf6 (added index.html)
             </div>
         </div>
     </section>
@@ -1481,6 +2370,7 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-5 mb-4 mb-lg-0">
+<<<<<<< HEAD
                     <img src="assets/img/logo.png" alt="AI Media Logo" height="50" class="mb-4 magnetic-item">
                     <p class="text-white pe-md-5">Driven by creativity, guided by innovation, and powered by
                         collaboration. We stand ready to shape the future of brand experiences.</p>
@@ -1505,17 +2395,46 @@
                                 class="fa-solid fa-phone me-2 text-white"></i> +234 806 817 0788</li>
                         <li class="mb-2 mt-3 d-flex align-items-start magnetic-item">
                             <i class="fa-solid fa-location-dot me-3 mt-1 text-white"></i>
+=======
+                    <img src="assets/img/logo.png" alt="AI Media Logo" height="50" class="mb-4">
+                    <p class="text-white-50 pe-md-5">Driven by creativity, guided by innovation, and powered by
+                        collaboration. We stand ready to shape the future of brand experiences.</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-3" style="font-size: 1.1rem;">Quick Links</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#capabilities"
+                                class="text-white-50 text-decoration-none">Capabilities</a></li>
+                        <li class="mb-2"><a href="#portfolio" class="text-white-50 text-decoration-none">Portfolio</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3" style="font-size: 1.1rem;">Get In Touch</h5>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-warning"></i> contact@aimediang.com
+                        </li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> +234 806 817 0788</li>
+                        <li class="mb-2 mt-3 d-flex align-items-start">
+                            <i class="fa-solid fa-location-dot me-3 mt-1 text-warning"></i>
+>>>>>>> a0edcf6 (added index.html)
                             <span>132b Obafemi Awolowo Way,<br>Ikeja, Lagos</span>
                         </li>
                     </ul>
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="border-top border-secondary pt-4 text-center text-white small">
+=======
+            <div class="border-top border-secondary pt-4 text-center text-white-50 small">
+>>>>>>> a0edcf6 (added index.html)
                 &copy; 2026 AI Media & Communications Limited. All rights reserved.
             </div>
         </div>
     </footer>
 
+<<<<<<< HEAD
     <div class="whatsapp-container">
         <div class="whatsapp-prompt">
             Got a project? Let's talk! 👋
@@ -1550,17 +2469,44 @@
         });
 
         // 3. Hero Dynamic Text Swapper
+=======
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 1. Navbar Scrolled State
+        const navbar = document.getElementById('mainNav');
+        const navIcon = document.getElementById('navIcon');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                navIcon.classList.remove('text-white');
+                navIcon.classList.add('text-dark');
+            } else {
+                navbar.classList.remove('scrolled');
+                navIcon.classList.remove('text-dark');
+                navIcon.classList.add('text-white');
+            }
+        });
+
+        // 2. Hero Dynamic Text Swapper
+>>>>>>> a0edcf6 (added index.html)
         const words = ["Innovate.", "Engage.", "Influence."];
         let wordIndex = 0;
         const dynamicWordEl = document.getElementById('hero-dynamic-word');
 
         setInterval(() => {
             dynamicWordEl.style.opacity = '0';
+<<<<<<< HEAD
             dynamicWordEl.style.transform = 'translateY(15px)';
+=======
+            dynamicWordEl.style.transform = 'translateY(10px)';
+>>>>>>> a0edcf6 (added index.html)
 
             setTimeout(() => {
                 wordIndex = (wordIndex + 1) % words.length;
                 dynamicWordEl.innerText = words[wordIndex];
+<<<<<<< HEAD
                 dynamicWordEl.style.opacity = '1';
                 dynamicWordEl.style.transform = 'translateY(0)';
             }, 500);
@@ -1645,3 +2591,41 @@
 </body>
 
 </html>
+=======
+
+                dynamicWordEl.style.opacity = '1';
+                dynamicWordEl.style.transform = 'translateY(0)';
+            }, 400);
+        }, 3000);
+
+        // 3. Intersection Observer for Scroll Reveals
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        setTimeout(() => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('active');
+                }
+            });
+        }, 100);
+    </script>
+</body>
+
+</html>
+>>>>>>> a0edcf6 (added index.html)
