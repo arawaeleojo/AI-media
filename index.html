@@ -10,27 +10,107 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
         rel="stylesheet">
 
     <style>
         :root {
-            --brand-dark: #051324;
-            --brand-blue: #0A2540;
+            /* Their Official Brand Colors */
+            --brand-blue: #0e3a72;
+            --brand-blue-deep: #051324;
             --brand-orange: #FF5A00;
-            --surface-light: #F9FAFB;
-            --text-body: #4B5563;
+
+            /* Glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+
+            /* Text strictly light */
+            --text-main: #ffffff;
         }
 
+        /* --- CUSTOM MAGNETIC CURSOR --- */
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-body);
-            background-color: #ffffff;
+            color: var(--text-main);
+            background-color: var(--brand-blue-deep);
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            cursor: none;
+        }
+
+        a,
+        button,
+        .portfolio-card-dramatic,
+        .sleek-value-card,
+        .capability-card,
+        .btn,
+        .cta-action-box,
+        .client-sleek-card {
+            cursor: none !important;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--brand-orange);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+            transform: translate3d(-50%, -50%, 0);
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255, 90, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            z-index: 9998;
+            pointer-events: none;
+            transform: translate3d(-50%, -50%, 0);
+            transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+                height 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+                background-color 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .cursor-outline.magnetic-active {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 90, 0, 0.15);
+            border-color: rgba(255, 90, 0, 0.8);
+            backdrop-filter: blur(2px);
+        }
+
+        @media (pointer: coarse) {
+
+            .cursor-dot,
+            .cursor-outline {
+                display: none !important;
+            }
+
+            body,
+            a,
+            button,
+            .portfolio-card-dramatic,
+            .sleek-value-card,
+            .capability-card,
+            .btn,
+            .cta-action-box,
+            .client-sleek-card {
+                cursor: auto !important;
+            }
         }
 
         h1,
@@ -40,43 +120,19 @@
         h5,
         h6 {
             font-family: 'Outfit', sans-serif;
-            color: var(--brand-dark);
-            font-weight: 600;
+            color: #ffffff;
+            font-weight: 800;
             letter-spacing: -0.02em;
         }
 
         .eyebrow {
             font-size: 0.85rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             color: var(--brand-orange);
             display: block;
             margin-bottom: 1rem;
-        }
-
-        /* --- Scroll Reveal --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .delay-1 {
-            transition-delay: 0.1s;
-        }
-
-        .delay-2 {
-            transition-delay: 0.2s;
-        }
-
-        .delay-3 {
-            transition-delay: 0.3s;
         }
 
         /* --- Navbar --- */
@@ -88,93 +144,98 @@
         }
 
         .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            background-color: rgba(5, 19, 36, 0.95);
+            backdrop-filter: blur(15px);
             padding: 16px 0;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-        }
-
-        /* Navbar Logo Toggle Logic */
-        .logo-dark {
-            display: none !important;
-        }
-
-        .navbar.scrolled .logo-light {
-            display: none !important;
-        }
-
-        .navbar.scrolled .logo-dark {
-            display: block !important;
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .nav-link {
             font-weight: 500;
             font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.9) !important;
+            color: #ffffff !important;
             margin: 0 16px;
             transition: color 0.3s ease;
         }
 
-        .navbar.scrolled .nav-link {
-            color: var(--text-body) !important;
-        }
-
-        .nav-link:hover,
-        .navbar.scrolled .nav-link:hover {
+        .nav-link:hover {
             color: var(--brand-orange) !important;
         }
 
         /* --- Buttons --- */
         .btn-agency {
-            background-color: var(--brand-orange);
+            background: linear-gradient(45deg, var(--brand-orange), #ff7a33);
             color: #ffffff;
             font-family: 'Outfit', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.05rem;
             padding: 16px 40px;
-            border-radius: 8px;
+            border-radius: 4px;
             border: none;
-            transition: all 0.3s ease;
+            display: inline-block;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-agency:hover {
-            background-color: #E04F00;
+            box-shadow: 0 15px 30px rgba(255, 90, 0, 0.3);
             color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 90, 0, 0.2);
         }
 
         .btn-outline-light-custom {
             background-color: transparent;
             color: #ffffff;
             font-family: 'Outfit', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.05rem;
             padding: 14px 38px;
-            border-radius: 8px;
+            border-radius: 4px;
             border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+            display: inline-block;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, border-color 0.3s ease;
+            text-transform: uppercase;
         }
 
         .btn-outline-light-custom:hover {
-            border-color: #ffffff;
-            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--brand-orange);
+            background-color: rgba(255, 90, 0, 0.1);
             color: #ffffff;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- GLOBAL BACKGROUND ANIMATIONS --- */
+        @keyframes bgDrift {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.1) translate(-2%, -2%);
+            }
+        }
+
+        @keyframes bgDriftReverse {
+            0% {
+                transform: scale(1.1) translate(-2%, 2%);
+            }
+
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        /* --- CINEMATIC HERO SECTION (VIDEO-LIKE FEEL) --- */
         .hero {
             height: 100vh;
-            min-height: 800px;
+            min-height: 700px;
             position: relative;
-            background-color: #030812;
             overflow: hidden;
             display: flex;
             align-items: center;
+            background-color: var(--brand-blue-deep);
         }
 
-        /* Layer 0: Glossy Cool-Toned Blobs */
-        .mesh-bg {
+        .hero-carousel-bg {
             position: absolute;
             top: 0;
             left: 0;
@@ -182,199 +243,154 @@
             height: 100%;
             z-index: 0;
             overflow: hidden;
-            background-color: #030812;
+            background-color: #000;
         }
 
-        .blob {
+        /* Wrapper controls the crossfade */
+        .hero-carousel-slide {
             position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.65;
-            animation: moveBlob 25s infinite alternate ease-in-out;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 0;
+            transition: opacity 1.5s ease-in-out;
+            /* Snappier fade */
         }
 
-        .blob-1 {
-            top: -10%;
-            left: -10%;
-            width: 60vw;
-            height: 60vw;
-            background: #0044FF;
+        .hero-carousel-slide.active {
+            opacity: 0.55;
+            z-index: 1;
         }
 
-        .blob-2 {
-            bottom: -20%;
-            right: -10%;
-            width: 70vw;
-            height: 70vw;
-            background: #00E5FF;
-            animation-delay: -5s;
+        /* Inner image handles focus and motion via KEYFRAMES so it starts instantly */
+        .slide-img {
+            position: absolute;
+            inset: -10%;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.2);
+            filter: blur(15px);
+            /* Default start state */
         }
 
-        .blob-3 {
-            top: 30%;
-            left: 40%;
-            width: 50vw;
-            height: 50vw;
-            background: #8A2BE2;
-            animation-delay: -10s;
-        }
-
-        @keyframes moveBlob {
+        /* Define the cinematic camera movements */
+        @keyframes cinematicShot1 {
             0% {
-                transform: translate(0, 0) scale(1);
+                transform: scale(1.2) translate(0, 0);
+                filter: blur(15px);
             }
 
-            50% {
-                transform: translate(5%, 10%) scale(1.1);
+            15% {
+                filter: blur(0);
             }
 
             100% {
-                transform: translate(-5%, -10%) scale(0.9);
+                transform: scale(1) translate(-3%, 2%);
+                filter: blur(0);
             }
         }
 
-        /* Layer 1: Dot Pattern Texture */
-        .hero-texture {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.8) 1.5px, transparent 1.5px);
-            background-size: 28px 28px;
-            pointer-events: none;
+        @keyframes cinematicShot2 {
+            0% {
+                transform: scale(1) translate(-2%, -2%);
+                filter: blur(15px);
+            }
+
+            15% {
+                filter: blur(0);
+            }
+
+            100% {
+                transform: scale(1.15) translate(2%, 2%);
+                filter: blur(0);
+            }
         }
 
-        /* Layer 2: Floating Frosted Glass Elements */
-        .floating-shapes {
+        @keyframes cinematicShot3 {
+            0% {
+                transform: scale(1.15) translate(2%, -2%);
+                filter: blur(15px);
+            }
+
+            15% {
+                filter: blur(0);
+            }
+
+            100% {
+                transform: scale(1) translate(-3%, -3%);
+                filter: blur(0);
+            }
+        }
+
+        /* Apply the keyframes when the slide becomes active */
+        .hero-carousel-slide:nth-child(1).active .slide-img {
+            animation: cinematicShot1 6s linear forwards;
+        }
+
+        .hero-carousel-slide:nth-child(2).active .slide-img {
+            animation: cinematicShot2 6s linear forwards;
+        }
+
+        .hero-carousel-slide:nth-child(3).active .slide-img {
+            animation: cinematicShot3 6s linear forwards;
+        }
+
+        .hero-overlay-dark {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(5, 19, 36, 0.95) 0%, rgba(10, 37, 64, 0.1) 100%);
             z-index: 2;
             pointer-events: none;
-            overflow: hidden;
         }
 
-        .shape {
-            position: absolute;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.0) 100%);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-            animation: floatShape 15s infinite ease-in-out alternate;
-        }
-
-        .shape-1 {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            top: 15%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape-2 {
-            width: 200px;
-            height: 60px;
-            border-radius: 50px;
-            bottom: 25%;
-            left: 45%;
-            transform: rotate(35deg);
-            animation-delay: -5s;
-        }
-
-        .shape-3 {
-            width: 100px;
-            height: 100px;
-            border-radius: 24px;
-            top: 50%;
-            right: 40%;
-            transform: rotate(15deg);
-            animation-delay: -10s;
-        }
-
-        .shape-4 {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            bottom: 15%;
-            left: 15%;
-            animation-duration: 12s;
-            animation-delay: -2s;
-            opacity: 0.6;
-        }
-
-        .shape-5 {
-            width: 180px;
-            height: 180px;
-            border-radius: 30px;
-            top: 8%;
-            right: 25%;
-            transform: rotate(45deg);
-            animation-duration: 18s;
-            animation-delay: -7s;
-            opacity: 0.4;
-        }
-
-        @keyframes floatShape {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            100% {
-                transform: translateY(-50px) rotate(25deg);
-            }
-        }
-
-        /* Layer 3: Dark Overlay for text legibility */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(3, 8, 18, 0.9) 0%, rgba(3, 8, 18, 0.4) 100%);
-            z-index: 3;
-            pointer-events: none;
-        }
-
-        /* Layer 4: Content */
-        .hero-content {
-            position: relative;
-            z-index: 4;
-            width: 100%;
-            padding-top: 20px;
-        }
-
+        /* Typography & Entrance Animations */
         .hero-badge {
             display: inline-block;
-            padding: 8px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 6px 20px;
+            background: rgba(255, 90, 0, 0.1);
+            border: 1px solid var(--brand-orange);
             border-radius: 100px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(5px);
+            color: var(--brand-orange);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: slideDownFade 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            opacity: 0;
+            transform: translateY(-30px);
         }
 
-        .hero h1 {
-            font-size: clamp(3rem, 6vw, 5.5rem);
+        .hero-title-massive {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+            margin: 0;
+            position: relative;
+            animation: slideUpFade 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .hero-title-massive span.solid {
             color: #ffffff;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            -webkit-text-stroke: 0;
+        }
+
+        .hero-title-massive span.accent {
+            color: var(--brand-orange);
+            -webkit-text-stroke: 0;
         }
 
         .dynamic-word-wrapper {
             display: inline-block;
-            min-width: 240px;
-            color: var(--brand-orange);
+            min-width: 220px;
         }
 
         #hero-dynamic-word {
@@ -382,285 +398,648 @@
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 550px;
-            margin-bottom: 3rem;
-            line-height: 1.6;
-        }
-
-        /* --- Infinite Card Scroller (Right Side) --- */
-        .scroller-container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .scroller-title {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .card-scroller-window {
-            height: 480px;
-            width: 100%;
-            max-width: 320px;
-            overflow: hidden;
-            position: relative;
-            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-        }
-
-        .card-track {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            animation: scrollVertical 20s linear infinite;
-        }
-
-        .card-track:hover {
-            animation-play-state: paused;
-        }
-
-        .client-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 16px;
-            padding: 30px;
-            height: 110px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
             color: #ffffff;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 1.4rem;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: pointer;
+            max-width: 500px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 3;
+            animation: slideUpFade 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
-        .client-card:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border-color: var(--brand-orange);
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        .hero-buttons {
+            animation: slideUpFade 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.9s forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        @keyframes scrollVertical {
-            0% {
+        @keyframes slideDownFade {
+            to {
+                opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- HORIZONTAL TICKER TAPE --- */
+        .hero-marquee-wrapper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--brand-blue-deep);
+            padding: 18px 0;
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0 -10px 30px rgba(255, 90, 0, 0.2);
+        }
+
+        .hero-marquee {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            animation: marqueeScroll 25s linear infinite;
+            padding-right: 4rem;
+        }
+
+        .hero-marquee span {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-marquee i {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            color: var(--brand-orange);
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
             }
 
             100% {
-                transform: translateY(calc(-50% - 10px));
+                transform: translateX(-50%);
             }
         }
 
         /* --- Section Spacing & Structure --- */
         .section-padding {
             padding: 120px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .bg-light-surface {
-            background-color: var(--surface-light);
+        .bg-blue-deep {
+            background-color: var(--brand-blue-deep);
         }
 
-        /* --- NEW: Foundation Section --- */
+        .bg-blue-main {
+            background-color: var(--brand-blue);
+        }
+
+        /* --- FOUNDATION SECTION --- */
         .foundation-section {
-            background-color: var(--brand-dark);
-            color: #fff;
             position: relative;
+            padding: 150px 0;
+            color: #ffffff;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             overflow: hidden;
         }
 
-        .foundation-bg {
+        .foundation-bg-image {
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(255, 90, 0, 0.08), transparent 50%);
+            inset: -10%;
+            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop') center/cover;
             z-index: 0;
-            pointer-events: none;
+            animation: bgDrift 10s infinite alternate linear;
         }
 
-        .foundation-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
+        .foundation-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(10, 50, 99, 0.7), rgba(10, 37, 64, 0.5));
+            z-index: 1;
+        }
+
+        .vision-mission-block {
+            margin-bottom: 40px;
+            padding-left: 20px;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+            transition: border-color 0.4s ease;
+        }
+
+        .vision-mission-block:hover {
+            border-left-color: var(--brand-orange);
+        }
+
+        .vision-mission-block h4 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .vision-mission-block p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .sleek-value-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0;
             padding: 40px;
             height: 100%;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s;
-            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
         }
 
-        .foundation-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 90, 0, 0.5);
-            background: rgba(255, 255, 255, 0.06);
+        .sleek-value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--brand-orange);
+            transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* General Sections */
+        .sleek-value-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .sleek-value-card:hover::before {
+            width: 100%;
+        }
+
+        .value-number {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .sleek-value-card:hover .value-number {
+            -webkit-text-stroke: 1px var(--brand-orange);
+            opacity: 0.6;
+        }
+
+        .value-icon {
+            font-size: 2rem;
+            color: var(--brand-orange);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .sleek-value-card h5 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .sleek-value-card p {
+            color: #ffffff;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- Capabilities (Glass Cards) --- */
         .capability-card {
-            background: var(--surface-light);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
             border-radius: 12px;
             padding: 40px 30px;
             height: 100%;
-            transition: all 0.3s;
+            transition: all 0.4s;
         }
 
         .capability-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-            background: #ffffff;
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--brand-orange);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         .icon-wrap {
             width: 60px;
             height: 60px;
-            background: rgba(255, 90, 0, 0.1);
-            color: var(--brand-orange);
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             margin-bottom: 24px;
+            transition: 0.3s;
         }
 
-        .why-choose-us {
-            position: relative;
-            background: linear-gradient(to right, rgba(5, 19, 36, 0.95), rgba(5, 19, 36, 0.85)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
+        .capability-card:hover .icon-wrap {
+            background: var(--brand-orange);
             color: #ffffff;
-            padding: 120px 0;
+            transform: scale(1.1);
         }
 
-        .cta-section {
-            position: relative;
-            padding: 120px 0;
-            background: linear-gradient(rgba(5, 19, 36, 0.9), rgba(5, 19, 36, 0.9)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
-            text-align: center;
-        }
-
-        .portfolio-item {
-            border-radius: 12px;
+        /* --- HIGH-DRAMA PORTFOLIO --- */
+        .portfolio-section {
+            padding: 150px 0;
+            background-color: var(--brand-blue-deep);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             overflow: hidden;
-            position: relative;
-            aspect-ratio: 4/5;
         }
 
-        .portfolio-item img {
+        .dramatic-portfolio-row .col-lg-4:nth-child(2) {
+            margin-top: 60px;
+        }
+
+        .dramatic-portfolio-row .col-lg-4:nth-child(3) {
+            margin-top: 120px;
+        }
+
+        @media (max-width: 991px) {
+
+            .dramatic-portfolio-row .col-lg-4:nth-child(2),
+            .dramatic-portfolio-row .col-lg-4:nth-child(3) {
+                margin-top: 0;
+            }
+        }
+
+        .portfolio-card-dramatic {
+            position: relative;
+            height: 600px;
+            border-radius: 0;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .portfolio-card-dramatic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.7s;
+            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), filter 1s ease;
+            filter: grayscale(100%) brightness(0.4);
         }
 
-        .portfolio-content {
+        .card-bg-number {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 40px 30px 30px;
-            background: linear-gradient(to top, rgba(5, 19, 36, 0.95) 0%, transparent 100%);
-            color: #fff;
+            top: 20px;
+            right: 20px;
+            font-size: 8rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
+            z-index: 2;
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: translateX(50px);
+            opacity: 0;
         }
 
-        .portfolio-item:hover img {
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(5, 19, 36, 1) 0%, transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 50px 40px;
+            z-index: 3;
+            transition: background 0.8s ease;
+        }
+
+        .overlay-content {
+            width: 100%;
+            transform: translateY(50px);
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .eyebrow-small {
+            color: var(--brand-orange);
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            display: block;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease 0.1s;
+        }
+
+        .asset-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        .asset-location {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .accent-line {
+            width: 0;
+            height: 3px;
+            background: var(--brand-orange);
+            margin-bottom: 25px;
+            transition: width 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+        }
+
+        .view-project-btn {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 0.15em;
+            display: inline-flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease 0.3s;
+        }
+
+        .view-project-btn:hover {
+            color: var(--brand-orange);
+        }
+
+        .portfolio-card-dramatic:hover {
+            border-color: var(--brand-orange);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 90, 0, 0.1);
+            transform: translateY(-15px);
+            z-index: 10;
+        }
+
+        .portfolio-card-dramatic:hover img {
+            transform: scale(1.12);
+            filter: grayscale(0%) brightness(0.8);
+        }
+
+        .portfolio-card-dramatic:hover .portfolio-overlay {
+            background: linear-gradient(to top, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.4) 60%, transparent 100%);
+        }
+
+        .portfolio-card-dramatic:hover .overlay-content {
+            transform: translateY(0);
+        }
+
+        .portfolio-card-dramatic:hover .card-bg-number {
+            transform: translateX(0);
+            opacity: 1;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15);
+        }
+
+        .portfolio-card-dramatic:hover .eyebrow-small,
+        .portfolio-card-dramatic:hover .view-project-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .portfolio-card-dramatic:hover .accent-line {
+            width: 100%;
+        }
+
+        /* --- SLEEK CLIENTS SECTION (With Moving Background) --- */
+        .clients-bg-section {
+            position: relative;
+            padding: 150px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .clients-bg-image {
+            position: absolute;
+            inset: -10%;
+            background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2070&auto=format&fit=crop') center/cover;
+            z-index: 0;
+            animation: bgDriftReverse 15s infinite alternate linear;
+        }
+
+        .clients-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(2, 7, 14, 0.85) 0%, rgba(10, 37, 64, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .client-heading-massive {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+        }
+
+        .client-heading-massive .text-outline-orange {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--brand-orange);
+        }
+
+        .client-sleek-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 991px) {
+            .client-sleek-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .client-sticky-hook {
+                position: static !important;
+                margin-bottom: 50px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .client-sleek-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .client-sleek-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .client-sleek-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 90, 0, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .client-sleek-card:hover {
+            color: #ffffff;
+            border-color: var(--brand-orange);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(255, 90, 0, 0.15);
+            z-index: 5;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .client-sleek-card:hover::before {
+            opacity: 1;
+        }
+
+        /* --- STRUCTURAL CTA SECTION --- */
+        .cta-section-structural {
+            position: relative;
+            padding: 150px 0;
+            background-color: var(--brand-blue-deep);
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cta-bg-image {
+            position: absolute;
+            inset: -10%;
+            background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover;
+            opacity: 0.3;
+            filter: grayscale(50%);
+            z-index: 0;
+            animation: bgDrift 25s infinite alternate linear;
+        }
+
+        .cta-bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(6, 46, 87, 0.8) 0%, rgba(5, 19, 36, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .cta-heading-structural {
+            font-size: clamp(3rem, 6vw, 6rem);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .cta-heading-structural .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--brand-orange);
+        }
+
+        .cta-action-box {
+            background: var(--brand-orange);
+            padding: 70px 60px;
+            border-radius: 0;
+            box-shadow: -20px 20px 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.4s ease;
+        }
+
+        .cta-action-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .cta-action-box p {
+            color: #ffffff;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn-solid {
+            background: var(--brand-blue-deep);
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 20px 45px;
+            border-radius: 0;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 1.1rem;
+        }
+
+        .cta-btn-solid:hover {
+            background: #ffffff;
+            color: var(--brand-orange);
             transform: scale(1.05);
         }
 
         footer {
-            background-color: #030A14;
-            color: #ffffff;
+            background-color: #020810;
             padding: 80px 0 30px;
-        }
-
-        /* --- RESPONSIVE MOBILE FIX --- */
-        @media (max-width: 991px) {
-            .hero {
-                height: auto;
-                min-height: 100vh;
-                padding: 100px 0 60px 0;
-            }
-
-            .scroller-container {
-                margin-top: 60px;
-                align-items: flex-start;
-            }
-
-            .scroller-title {
-                text-align: left;
-            }
-
-            .card-scroller-window {
-                height: 120px;
-                max-width: 100%;
-                mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-                -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            }
-
-            .card-track {
-                flex-direction: row;
-                width: max-content;
-                animation: scrollHorizontal 20s linear infinite;
-            }
-
-            .client-card {
-                width: 220px;
-                height: 100px;
-            }
-
-            .shape-3,
-            .shape-4,
-            .shape-5 {
-                display: none;
-            }
-        }
-
-        @keyframes scrollHorizontal {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(calc(-50% - 10px));
-            }
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
 
 <body>
 
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="assets/img/logo.png" alt="AI Media Logo" height="60" class="logo-light">
-                <img src="assets/img/logo.png" alt="AI Media Logo" height="60" class="logo-dark">
+            <a class="navbar-brand d-flex align-items-center magnetic-item" href="#">
+                <img src="assets/img/logo.png" alt="AI Media Logo" height="55">
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler border-0 magnetic-item" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarContent">
                 <i class="fa-solid fa-bars text-white" id="navIcon"></i>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
                 <ul class="navbar-nav align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#foundation">Foundation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#capabilities">Capabilities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link magnetic-item" href="#about">About</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link magnetic-item" href="#foundation">Foundation</a></li> -->
+                    <li class="nav-item"><a class="nav-link magnetic-item" href="#capabilities">Capabilities</a></li>
+                    <li class="nav-item"><a class="nav-link magnetic-item" href="#portfolio">Portfolio</a></li>
                     <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
-                        <a href="#contact" class="btn btn-agency" style="padding: 10px 24px;">Partner With Us</a>
+                        <a href="#contact" class="btn btn-agency magnetic-btn">Partner With Us</a>
                     </li>
                 </ul>
             </div>
@@ -668,201 +1047,188 @@
     </nav>
 
     <header class="hero" id="heroSection">
-        <div class="mesh-bg">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
+        <div class="hero-carousel-bg">
+            <div class="hero-carousel-slide active">
+                <div class="slide-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+            </div>
+            <div class="hero-carousel-slide">
+                <div class="slide-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1555421689-d68471e189f2?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+            </div>
+            <div class="hero-carousel-slide">
+                <div class="slide-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop');">
+                </div>
+            </div>
         </div>
 
-        <div class="hero-texture"></div>
+        <div class="hero-overlay-dark"></div>
 
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-            <div class="shape shape-5"></div>
+        <div class="container position-relative z-3 h-100 d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col-lg-8 col-xl-7">
+                    <div class="hero-badge mb-4">The New Standard in Media</div>
+                    <h1 class="hero-title-massive">
+                        Out-of-Home <br>
+                        <span class="solid">Reimagined.</span> <br>
+                        <span class="accent dynamic-word-wrapper"><span id="hero-dynamic-word">Innovate.</span></span>
+                    </h1>
+                    <p class="hero-subtitle mt-4">We orchestrate high-impact media strategies and immersive experiential campaigns that refuse to be ignored.</p>
+                    <div class="hero-buttons mt-4 d-flex flex-column flex-sm-row gap-3">
+                        <a href="#contact" class="btn btn-agency magnetic-btn">Start The Drama</a>
+                        <a href="#portfolio" class="btn btn-outline-light-custom magnetic-btn">Explore Assets</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content container reveal active">
-            <div class="row align-items-center">
-
-                <div class="col-lg-7 mb-5 mb-lg-0">
-                    <div class="hero-text-area">
-                        <div class="hero-badge">Innovate &bull; Engage &bull; Influence</div>
-
-                        <h1>We help brands <br>
-                            <span class="dynamic-word-wrapper">
-                                <span id="hero-dynamic-word">Innovate.</span>
-                            </span>
-                        </h1>
-
-                        <p>We empower brands through data-driven media strategies and immersive experiential campaigns
-                            that maximize reach, engagement, and ROI.</p>
-
-                        <div class="d-flex flex-column flex-sm-row gap-3">
-                            <a href="#contact" class="btn btn-agency">Start Your Project</a>
-                            <a href="#portfolio" class="btn btn-outline-light-custom">View Asset Portfolio</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-5 d-flex justify-content-lg-end">
-                    <div class="scroller-container">
-                        <div class="scroller-title">Trusted By Teams At</div>
-
-                        <div class="card-scroller-window">
-                            <div class="card-track">
-                                <div class="client-card">Moniepoint</div>
-                                <div class="client-card">Coca-Cola</div>
-                                <div class="client-card">itel Energy</div>
-                                <div class="client-card">Knorr</div>
-                                <div class="client-card">MTN</div>
-                                <div class="client-card">Moniepoint</div>
-                                <div class="client-card">Coca-Cola</div>
-                                <div class="client-card">itel Energy</div>
-                                <div class="client-card">Knorr</div>
-                                <div class="client-card">MTN</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="hero-marquee-wrapper">
+            <div class="hero-marquee magnetic-item">
+                <span>Trusted by Moniepoint</span> <i class="fa-solid fa-asterisk"></i>
+                <span>Trusted by Coca-Cola</span> <i class="fa-solid fa-asterisk"></i>
+                <span>Trusted by itel Energy</span> <i class="fa-solid fa-asterisk"></i>
+                <span>Trusted by Knorr</span> <i class="fa-solid fa-asterisk"></i>
+                <span>Trusted by MTN</span> <i class="fa-solid fa-asterisk"></i>
+                <span>Trusted by Moniepoint</span> <i class="fa-solid fa-asterisk"></i>
+                <span>Trusted by Coca-Cola</span> <i class="fa-solid fa-asterisk"></i>
+                <span>Trusted by itel Energy</span> <i class="fa-solid fa-asterisk"></i>
+                <span>Trusted by Knorr</span> <i class="fa-solid fa-asterisk"></i>
+                <span>Trusted by MTN</span> <i class="fa-solid fa-asterisk"></i>
             </div>
         </div>
     </header>
 
-    <section id="about" class="section-padding">
+    <section id="about" class="section-padding bg-blue-main">
         <div class="container">
             <div class="row align-items-center gx-lg-5">
-                <div class="col-lg-6 mb-5 mb-lg-0 reveal">
-                    <img src="assets/img/moniepoint.jpg" class="w-100 rounded-4 shadow-sm"
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <img src="assets/img/moniepoint.jpg"
+                        class="w-100 rounded-0 shadow-lg border border-secondary magnetic-item"
                         alt="Agency Strategy Meeting">
                 </div>
-                <div class="col-lg-6 reveal delay-1">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
                     <span class="eyebrow">The Agency</span>
-                    <h2 class="mb-4 display-6 text-dark">Connecting brands with their true audience.</h2>
-                    <p class="fs-5 text-muted mb-4">AI Media & Communications is a dynamic agency established to help
-                        brands connect through creativity, strategy, and experience. </p>
-                    <p>As a subsidiary of JOTT Productions—a leading asset fabrication company with over 40 years of
-                        excellence—we combine strategic thinking with hands-on executional power.</p>
+                    <h2 class="mb-4 display-6">Connecting brands with their true audience.</h2>
+                    <p class="fs-5 text-white mb-4">AI Media & Communications is a dynamic agency established to help
+                        brands connect through creativity, strategy, and experience.</p>
+                    <p class="text-white">As a subsidiary of JOTT Productions—a leading asset fabrication company with
+                        over 40 years of excellence—we combine strategic thinking with hands-on executional power.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="foundation" class="section-padding foundation-section">
-        <div class="foundation-bg"></div>
-        <div class="container position-relative" style="z-index: 1;">
+    <section id="foundation" class="foundation-section">
+        <div class="foundation-bg-image"></div>
+        <div class="foundation-bg-overlay"></div>
 
-            <div class="row mb-5 reveal">
-                <div class="col-12 text-center">
-                    <span class="eyebrow text-warning">Our Foundation</span>
-                    <h2 class="text-white">Direction & Core Values</h2>
-                </div>
-            </div>
+        <div class="container position-relative z-3">
+            <div class="row gx-lg-5">
 
-            <div class="row g-4">
-                <div class="col-lg-5 reveal delay-1">
-                    <div class="foundation-card d-flex flex-column justify-content-center">
-                        <div class="mb-5">
-                            <h4 class="text-white mb-3 d-flex align-items-center">
-                                <i class="fa-solid fa-eye text-warning me-3"></i>Our Vision
-                            </h4>
-                            <p class="text-white-50 mb-0" style="font-size: 1.1rem; line-height: 1.7;">To be a leading
-                                integrated marketing agency, pioneering Out-of-Home and experiential solutions.</p>
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="position-sticky" style="top: 120px;">
+                        <span class="eyebrow">Our Foundation</span>
+                        <h2 class="display-4 text-uppercase mb-5" style="line-height: 1.1;">Built on <br><span
+                                style="color: var(--brand-orange);">Purpose.</span></h2>
+
+                        <div class="vision-mission-block magnetic-item">
+                            <h4><i class="fa-solid fa-eye me-3" style="color: var(--brand-orange);"></i> Our Vision</h4>
+                            <p>To be a leading integrated marketing agency, pioneering Out-of-Home and experiential
+                                solutions.</p>
                         </div>
-                        <hr class="border-secondary opacity-25 mb-5">
-                        <div>
-                            <h4 class="text-white mb-3 d-flex align-items-center">
-                                <i class="fa-solid fa-bullseye text-warning me-3"></i>Our Mission
-                            </h4>
-                            <p class="text-white-50 mb-0" style="font-size: 1.1rem; line-height: 1.7;">To empower brands
-                                through data-driven media strategies and immersive experiential campaigns.</p>
+
+                        <div class="vision-mission-block magnetic-item">
+                            <h4><i class="fa-solid fa-bullseye me-3" style="color: var(--brand-orange);"></i> Our
+                                Mission</h4>
+                            <p>To empower brands through data-driven media strategies and immersive experiential
+                                campaigns.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-7">
-                    <div class="row g-4 h-100">
-                        <div class="col-md-6 reveal delay-2">
-                            <div class="foundation-card text-center p-4">
-                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">I</h3>
-                                <h5 class="text-white mt-3">Integrity</h5>
-                                <p class="small text-white-50 mb-0 mt-2">We uphold honesty and transparency in every
-                                    interaction.</p>
+                    <div class="row g-4">
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="sleek-value-card magnetic-item">
+                                <div class="value-number">01</div>
+                                <i class="fa-solid fa-shield-halved value-icon"></i>
+                                <h5>Integrity</h5>
+                                <p>We uphold absolute honesty, transparency, and ethical practices in every interaction.
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-6 reveal delay-2">
-                            <div class="foundation-card text-center p-4">
-                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">I</h3>
-                                <h5 class="text-white mt-3">Innovation</h5>
-                                <p class="small text-white-50 mb-0 mt-2">We embrace technology and fresh thinking to
-                                    deliver forward-driven solutions.</p>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="sleek-value-card magnetic-item">
+                                <div class="value-number">02</div>
+                                <i class="fa-solid fa-lightbulb value-icon"></i>
+                                <h5>Innovation</h5>
+                                <p>We embrace emerging technology and fresh thinking to deliver forward-driven
+                                    solutions.</p>
                             </div>
                         </div>
-                        <div class="col-md-6 reveal delay-3">
-                            <div class="foundation-card text-center p-4">
-                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">C</h3>
-                                <h5 class="text-white mt-3">Creativity</h5>
-                                <p class="small text-white-50 mb-0 mt-2">We transform ideas into compelling and engaging
-                                    brand experiences.</p>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="sleek-value-card magnetic-item">
+                                <div class="value-number">03</div>
+                                <i class="fa-solid fa-wand-magic-sparkles value-icon"></i>
+                                <h5>Creativity</h5>
+                                <p>We transform strategic ideas into compelling and unforgettable brand experiences.</p>
                             </div>
                         </div>
-                        <div class="col-md-6 reveal delay-3">
-                            <div class="foundation-card text-center p-4">
-                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">E</h3>
-                                <h5 class="text-white mt-3">Excellence</h5>
-                                <p class="small text-white-50 mb-0 mt-2">We pursue the highest standards with precision
-                                    and quality execution.</p>
+                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="sleek-value-card magnetic-item">
+                                <div class="value-number">04</div>
+                                <i class="fa-solid fa-gem value-icon"></i>
+                                <h5>Excellence</h5>
+                                <p>We pursue the highest industry standards with meticulous precision and execution.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </section>
 
-    <section id="capabilities" class="section-padding bg-light-surface">
+    <section id="capabilities" class="section-padding bg-blue-main">
         <div class="container">
-            <div class="text-center max-w-3xl mx-auto mb-5 pb-3 reveal">
+            <div class="text-center max-w-3xl mx-auto mb-5 pb-3" data-aos="fade-up">
                 <span class="eyebrow">Core Capabilities</span>
-                <h2>Integrated Marketing Solutions</h2>
+                <h2 class="display-5 text-uppercase">Integrated Solutions</h2>
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6 reveal delay-1">
-                    <div class="capability-card shadow-sm border-0">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="capability-card magnetic-item">
                         <div class="icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
-                        <h4 class="mb-3 fs-5 text-dark">OOH Advertising</h4>
-                        <p class="text-muted small mb-0">Delivering bold visibility that drives awareness through
+                        <h4 class="mb-3 fs-5 text-white text-uppercase">OOH Advertising</h4>
+                        <p class="text-white small mb-0">Delivering bold visibility that drives awareness through
                             strategic placements.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 reveal delay-2">
-                    <div class="capability-card shadow-sm border-0">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="capability-card magnetic-item">
                         <div class="icon-wrap"><i class="fa-solid fa-satellite-dish"></i></div>
-                        <h4 class="mb-3 fs-5 text-dark">Digital OOH</h4>
-                        <p class="text-muted small mb-0">Blending creativity and technology to deliver data-driven
+                        <h4 class="mb-3 fs-5 text-white text-uppercase">Digital OOH</h4>
+                        <p class="text-white small mb-0">Blending creativity and technology to deliver data-driven
                             outdoor experiences.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 reveal delay-3">
-                    <div class="capability-card shadow-sm border-0">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="capability-card magnetic-item">
                         <div class="icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
-                        <h4 class="mb-3 fs-5 text-dark">Media Buying</h4>
-                        <p class="text-muted small mb-0">Maximizing exposure, efficiency, and engagement across media
+                        <h4 class="mb-3 fs-5 text-white text-uppercase">Media Buying</h4>
+                        <p class="text-white small mb-0">Maximizing exposure, efficiency, and engagement across media
                             platforms.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 reveal delay-3">
-                    <div class="capability-card shadow-sm border-0">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="capability-card magnetic-item">
                         <div class="icon-wrap"><i class="fa-solid fa-users-rays"></i></div>
-                        <h4 class="mb-3 fs-5 text-dark">Experiential</h4>
-                        <p class="text-muted small mb-0">Crafting memorable brand experiences to drive deep emotional
+                        <h4 class="mb-3 fs-5 text-white text-uppercase">Experiential</h4>
+                        <p class="text-white small mb-0">Crafting memorable brand experiences to drive deep emotional
                             connections.</p>
                     </div>
                 </div>
@@ -870,80 +1236,106 @@
         </div>
     </section>
 
-    <section class="why-choose-us">
-        <div class="container">
+    <section id="clients" class="clients-bg-section">
+        <div class="clients-bg-image"></div>
+        <div class="clients-bg-overlay"></div>
+
+        <div class="container position-relative z-3">
             <div class="row align-items-center gx-lg-5">
-                <div class="col-lg-5 mb-5 mb-lg-0 reveal">
-                    <h2 class="text-white mb-4 display-6">Why Partner With Us?</h2>
-                    <p class="text-white-50 fs-5">We bring creative ideas to life with precision, style, and quality
-                        that demand attention in any market.</p>
-                </div>
-                <div class="col-lg-7">
-                    <div class="row g-4">
-                        <div class="col-md-6 reveal delay-1">
-                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> Proven Excellence
-                            </h5>
-                            <p class="text-white-50 small">Backed by JOTT Limited's 40 years of fabrication excellence.
-                            </p>
-                        </div>
-                        <div class="col-md-6 reveal delay-2">
-                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> Tailored Strategy
-                            </h5>
-                            <p class="text-white-50 small">A strategic and creative approach tailored specifically to
-                                each brand's unique needs.</p>
-                        </div>
-                        <div class="col-md-6 reveal delay-3">
-                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> Multi-Sector
-                                Expertise</h5>
-                            <p class="text-white-50 small">Deep expertise across FMCGs, corporates, government, tech,
-                                and financial institutions.</p>
-                        </div>
-                        <div class="col-md-6 reveal delay-3">
-                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> End-to-End
-                                Delivery</h5>
-                            <p class="text-white-50 small">Flawless project management designed to generate measurable,
-                                bottom-line outcomes.</p>
-                        </div>
+
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                    <div class="position-sticky client-sticky-hook" style="top: 150px;">
+                        <span class="eyebrow">Our Partners</span>
+                        <h2 class="client-heading-massive mb-4">
+                            Brands we've <br>
+                            <span class="text-outline-orange">ELEVATED.</span>
+                        </h2>
+                        <p class="text-white fs-5" style="opacity: 0.8;">We partner with ambitious teams to create
+                            defining media moments that push boundaries and command attention.</p>
                     </div>
                 </div>
+
+                <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+                    <div class="client-sleek-grid">
+                        <div class="client-sleek-card magnetic-item">Moniepoint</div>
+                        <div class="client-sleek-card magnetic-item">Coca-Cola</div>
+                        <div class="client-sleek-card magnetic-item">itel Energy</div>
+                        <div class="client-sleek-card magnetic-item">Knorr</div>
+                        <div class="client-sleek-card magnetic-item">MTN</div>
+                        <div class="client-sleek-card magnetic-item">Guinness</div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="section-padding">
+    <section id="portfolio" class="section-padding bg-blue-main">
         <div class="container">
-            <div class="text-center max-w-3xl mx-auto mb-5 pb-4 reveal">
-                <span class="eyebrow">Asset Portfolio</span>
-                <h2>Prime Visibility Assets</h2>
-                <p class="text-muted">Explore our strategically located, high-traffic advertising assets across Lagos.
-                </p>
+            <div class="row mb-5 pb-3">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <span class="eyebrow">Asset Portfolio</span>
+                    <h2 class="display-3 text-uppercase" style="line-height: 1.1;">Prime <br><span
+                            style="color: var(--brand-orange);">Visibility.</span></h2>
+                </div>
+                <div class="col-lg-4 d-flex align-items-end justify-content-lg-end mt-4 mt-lg-0" data-aos="fade-left"
+                    data-aos-delay="200">
+                    <p class="text-white mb-2 fs-5">Explore our strategically located, high-traffic advertising assets
+                        across Lagos.</p>
+                </div>
             </div>
 
-            <div class="row g-4">
-                <div class="col-md-4 reveal delay-1">
-                    <div class="portfolio-item shadow-sm">
+            <div class="row g-4 dramatic-portfolio-row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-card-dramatic magnetic-item">
+                        <div class="card-bg-number">01</div>
                         <img src="assets/img/beacon.PNG" alt="The Beacon Lekki">
-                        <div class="portfolio-content">
-                            <h4 class="text-white mb-1">The Beacon</h4>
-                            <p class="text-warning small mb-0 fw-bold">LED Board • Lekki Phase 1</p>
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <span class="eyebrow-small">LED Board</span>
+                                <h3 class="asset-title">The Beacon</h3>
+                                <p class="asset-location"><i
+                                        class="fa-solid fa-location-dot me-2 text-warning"></i>Lekki Phase 1</p>
+                                <div class="accent-line"></div>
+                                <a href="#" class="view-project-btn">Explore Asset <i
+                                        class="fa-solid fa-arrow-right ms-2"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 reveal delay-2">
-                    <div class="portfolio-item shadow-sm">
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-card-dramatic magnetic-item">
+                        <div class="card-bg-number">02</div>
                         <img src="assets/img/momentum.png" alt="The Momentum Ikeja">
-                        <div class="portfolio-content">
-                            <h4 class="text-white mb-1">The Momentum</h4>
-                            <p class="text-warning small mb-0 fw-bold">Wall Drape • Allen Avenue, Ikeja</p>
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <span class="eyebrow-small">Wall Drape</span>
+                                <h3 class="asset-title">Momentum</h3>
+                                <p class="asset-location"><i
+                                        class="fa-solid fa-location-dot me-2 text-warning"></i>Allen Ave, Ikeja</p>
+                                <div class="accent-line"></div>
+                                <a href="#" class="view-project-btn">Explore Asset <i
+                                        class="fa-solid fa-arrow-right ms-2"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 reveal delay-3">
-                    <div class="portfolio-item shadow-sm">
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="portfolio-card-dramatic magnetic-item">
+                        <div class="card-bg-number">03</div>
                         <img src="assets/img/moniepoint.jpg" alt="Investment Building Marina">
-                        <div class="portfolio-content">
-                            <h4 class="text-white mb-1">Investment Building</h4>
-                            <p class="text-warning small mb-0 fw-bold">Wall Panel • Broad Street, Marina</p>
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <span class="eyebrow-small">Wall Panel</span>
+                                <h3 class="asset-title">Investment Building</h3>
+                                <p class="asset-location"><i
+                                        class="fa-solid fa-location-dot me-2 text-warning"></i>Broad St, Marina</p>
+                                <div class="accent-line"></div>
+                                <a href="#" class="view-project-btn">Explore Asset <i
+                                        class="fa-solid fa-arrow-right ms-2"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -951,15 +1343,29 @@
         </div>
     </section>
 
-    <section class="cta-section">
-        <div class="container px-4 reveal">
-            <div class="cta-content text-white">
-                <h3 class="text-white mb-3 display-6" style="font-family: 'Outfit', sans-serif; font-weight: 600;">Let's
-                    Shape the Future of Your Brand.</h3>
-                <p class="fs-5 mb-4">Whether you need high-impact OOH placements or an unforgettable experiential
-                    activation, our team is
-                    ready to turn your vision into a measurable reality.</p>
-                <a href="#contact" class="btn btn-agency mt-2">Start Your Project</a>
+    <section class="cta-section-structural">
+        <div class="cta-bg-image"></div>
+        <div class="cta-bg-overlay"></div>
+
+        <div class="container position-relative z-3">
+            <div class="row align-items-center">
+
+                <div class="col-lg-7 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h2 class="cta-heading-structural">
+                        Ready to <br> <span class="text-outline">Dominate</span> <br> Your Market?
+                    </h2>
+                </div>
+
+                <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+                    <div class="cta-action-box magnetic-item">
+                        <p>Stop blending in. We build immersive media experiences that demand attention and drive
+                            measurable ROI.</p>
+                        <a href="#contact" class="cta-btn-solid magnetic-btn">
+                            Initiate Project <i class="fa-solid fa-arrow-right ms-3"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -968,34 +1374,36 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-5 mb-4 mb-lg-0">
-                    <img src="assets/img/logo.png" alt="AI Media Logo" height="50" class="mb-4">
-                    <p class="text-white-50 pe-md-5">Driven by creativity, guided by innovation, and powered by
+                    <img src="assets/img/logo.png" alt="AI Media Logo" height="50" class="mb-4 magnetic-item">
+                    <p class="text-white pe-md-5">Driven by creativity, guided by innovation, and powered by
                         collaboration. We stand ready to shape the future of brand experiences.</p>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-white mb-3" style="font-size: 1.1rem;">Quick Links</h5>
-                    <ul class="list-unstyled text-white-50">
-                        <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none">About Us</a></li>
+                    <h5 class="text-white mb-3" style="font-size: 1.1rem; text-transform: uppercase;">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#about" class="text-white text-decoration-none magnetic-item">About
+                                Us</a></li>
                         <li class="mb-2"><a href="#capabilities"
-                                class="text-white-50 text-decoration-none">Capabilities</a></li>
-                        <li class="mb-2"><a href="#portfolio" class="text-white-50 text-decoration-none">Portfolio</a>
-                        </li>
+                                class="text-white text-decoration-none magnetic-item">Capabilities</a></li>
+                        <li class="mb-2"><a href="#portfolio"
+                                class="text-white text-decoration-none magnetic-item">Portfolio</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3" style="font-size: 1.1rem;">Get In Touch</h5>
-                    <ul class="list-unstyled text-white-50">
-                        <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-warning"></i> contact@aimediang.com
-                        </li>
-                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> +234 806 817 0788</li>
-                        <li class="mb-2 mt-3 d-flex align-items-start">
-                            <i class="fa-solid fa-location-dot me-3 mt-1 text-warning"></i>
+                    <h5 class="text-white mb-3" style="font-size: 1.1rem; text-transform: uppercase;">Get In Touch</h5>
+                    <ul class="list-unstyled text-white">
+                        <li class="mb-2 magnetic-item" style="display:inline-block;"><i
+                                class="fa-solid fa-envelope me-2 text-white"></i> contact@aimediang.com</li><br>
+                        <li class="mb-2 magnetic-item" style="display:inline-block;"><i
+                                class="fa-solid fa-phone me-2 text-white"></i> +234 806 817 0788</li>
+                        <li class="mb-2 mt-3 d-flex align-items-start magnetic-item">
+                            <i class="fa-solid fa-location-dot me-3 mt-1 text-white"></i>
                             <span>132b Obafemi Awolowo Way,<br>Ikeja, Lagos</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="border-top border-secondary pt-4 text-center text-white-50 small">
+            <div class="border-top border-secondary pt-4 text-center text-white small">
                 &copy; 2026 AI Media & Communications Limited. All rights reserved.
             </div>
         </div>
@@ -1003,67 +1411,119 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        // 1. Navbar Scrolled State
-        const navbar = document.getElementById('mainNav');
-        const navIcon = document.getElementById('navIcon');
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <script>
+        // 1. Initialize AOS Animations
+        AOS.init({
+            duration: 900,
+            easing: 'ease-out-cubic',
+            once: false,
+            offset: 50
+        });
+
+        // 2. Navbar Scrolled State
+        const navbar = document.getElementById('mainNav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
-                navIcon.classList.remove('text-white');
-                navIcon.classList.add('text-dark');
             } else {
                 navbar.classList.remove('scrolled');
-                navIcon.classList.remove('text-dark');
-                navIcon.classList.add('text-white');
             }
         });
 
-        // 2. Hero Dynamic Text Swapper
+        // 3. Hero Dynamic Text Swapper
         const words = ["Innovate.", "Engage.", "Influence."];
         let wordIndex = 0;
         const dynamicWordEl = document.getElementById('hero-dynamic-word');
 
         setInterval(() => {
             dynamicWordEl.style.opacity = '0';
-            dynamicWordEl.style.transform = 'translateY(10px)';
+            dynamicWordEl.style.transform = 'translateY(15px)';
 
             setTimeout(() => {
                 wordIndex = (wordIndex + 1) % words.length;
                 dynamicWordEl.innerText = words[wordIndex];
-
                 dynamicWordEl.style.opacity = '1';
                 dynamicWordEl.style.transform = 'translateY(0)';
-            }, 400);
-        }, 3000);
+            }, 500);
+        }, 3500);
 
-        // 3. Intersection Observer for Scroll Reveals
-        const revealElements = document.querySelectorAll('.reveal');
+        // 4. Hero Background Image Carousel Logic
+        // Timing set to 5000ms (5s) for a much faster, punchier pace
+        const slides = document.querySelectorAll('.hero-carousel-slide');
+        let currentSlide = 0;
 
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            root: null,
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+
+        // 5. CUSTOM MAGNETIC CURSOR LOGIC
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let outlineX = window.innerWidth / 2;
+        let outlineY = window.innerHeight / 2;
+
+        // Track mouse position
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
         });
 
-        revealElements.forEach(el => revealObserver.observe(el));
+        // Smooth trailing animation
+        function animateCursor() {
+            let distX = mouseX - outlineX;
+            let distY = mouseY - outlineY;
 
-        setTimeout(() => {
-            revealElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    el.classList.add('active');
-                }
+            outlineX += distX * 0.15;
+            outlineY += distY * 0.15;
+
+            cursorOutline.style.transform = `translate3d(calc(${outlineX}px - 50%), calc(${outlineY}px - 50%), 0)`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // 6. ADD MAGNETIC & HOVER STATES TO ELEMENTS
+        const magneticItems = document.querySelectorAll('.magnetic-item, a, .client-sleek-card');
+        magneticItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                cursorOutline.classList.add('magnetic-active');
             });
-        }, 100);
+            item.addEventListener('mouseleave', () => {
+                cursorOutline.classList.remove('magnetic-active');
+            });
+        });
+
+        // Elements that physically pull towards the mouse
+        const magneticButtons = document.querySelectorAll('.magnetic-btn');
+        magneticButtons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                cursorOutline.classList.add('magnetic-active');
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                cursorOutline.classList.remove('magnetic-active');
+                btn.style.transform = '';
+            });
+
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const btnX = rect.left + rect.width / 2;
+                const btnY = rect.top + rect.height / 2;
+
+                const distanceX = e.clientX - btnX;
+                const distanceY = e.clientY - btnY;
+
+                btn.style.transform = `translate3d(${distanceX * 0.3}px, ${distanceY * 0.3}px, 0)`;
+            });
+        });
+
     </script>
 </body>
 
