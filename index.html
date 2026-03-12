@@ -34,6 +34,14 @@
             --text-main: #ffffff;
         }
 
+        /* --- THE FIX: Prevent horizontal shifting from AOS animations --- */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
         /* --- CUSTOM MAGNETIC CURSOR --- */
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
