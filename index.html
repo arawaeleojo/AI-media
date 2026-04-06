@@ -59,7 +59,8 @@
         .capability-card,
         .btn,
         .cta-action-box,
-        .client-sleek-card {
+        .client-sleek-card,
+        .whatsapp-float {
             cursor: none !important;
         }
 
@@ -71,7 +72,8 @@
             top: 0;
             left: 0;
             border-radius: 50%;
-            z-index: 9999;
+            z-index: 10002;
+            /* Ensures cursor stays above navbar */
             pointer-events: none;
             transform: translate3d(-50%, -50%, 0);
         }
@@ -84,7 +86,8 @@
             top: 0;
             left: 0;
             border-radius: 50%;
-            z-index: 9998;
+            z-index: 10001;
+            /* Ensures cursor stays above navbar */
             pointer-events: none;
             transform: translate3d(-50%, -50%, 0);
             transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1),
@@ -116,7 +119,8 @@
             .capability-card,
             .btn,
             .cta-action-box,
-            .client-sleek-card {
+            .client-sleek-card,
+            .whatsapp-float {
                 cursor: auto !important;
             }
         }
@@ -148,7 +152,8 @@
             background-color: transparent;
             transition: all 0.4s ease;
             padding: 24px 0;
-            z-index: 1000;
+            z-index: 10000;
+            /* Fixed layering issue */
         }
 
         .navbar.scrolled {
@@ -209,6 +214,86 @@
             border-color: var(--brand-orange);
             background-color: rgba(255, 90, 0, 0.1);
             color: #ffffff;
+        }
+
+        /* --- Floating WhatsApp Widget & Prompt --- */
+        .whatsapp-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9995;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            pointer-events: none; /* Let clicks pass through the container wrapper */
+        }
+
+        .whatsapp-prompt {
+            background: #ffffff;
+            color: var(--brand-blue-deep);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            opacity: 0;
+            transform: translateY(10px);
+            /* Animates in after 2 seconds, then gently floats up and down */
+            animation: floatPromptIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s forwards,
+                       promptHover 3s ease-in-out infinite alternate 2.8s;
+            pointer-events: auto; 
+        }
+
+        /* The little speech bubble triangle pointing down */
+        .whatsapp-prompt::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 22px;
+            width: 12px;
+            height: 12px;
+            background: #ffffff;
+            transform: rotate(45deg);
+            border-bottom-right-radius: 2px;
+        }
+
+        .whatsapp-float {
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            pointer-events: auto; /* Re-enable clicks for the button */
+        }
+
+        .whatsapp-float:hover {
+            background-color: #1ebe57;
+            color: #FFF;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        @keyframes floatPromptIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes promptHover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-6px); }
         }
 
         /* --- GLOBAL BACKGROUND ANIMATIONS --- */
@@ -461,13 +546,16 @@
             padding-right: 4rem;
         }
 
-        .hero-marquee span {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 900;
-            font-size: 1.2rem;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .hero-marquee img {
+            opacity: 0.5;
+            filter: grayscale(100%) brightness(200%);
+            /* Makes placeholders light and sleek */
+            transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+
+        .hero-marquee img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
         }
 
         .hero-marquee i {
@@ -1043,7 +1131,6 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
                 <ul class="navbar-nav align-items-lg-center">
                     <li class="nav-item"><a class="nav-link magnetic-item" href="#about">About</a></li>
-                    <!-- <li class="nav-item"><a class="nav-link magnetic-item" href="#foundation">Foundation</a></li> -->
                     <li class="nav-item"><a class="nav-link magnetic-item" href="#capabilities">Capabilities</a></li>
                     <li class="nav-item"><a class="nav-link magnetic-item" href="#portfolio">Portfolio</a></li>
                     <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
@@ -1084,9 +1171,10 @@
                         <span class="solid">Reimagined.</span> <br>
                         <span class="accent dynamic-word-wrapper"><span id="hero-dynamic-word">Innovate.</span></span>
                     </h1>
-                    <p class="hero-subtitle mt-4">We orchestrate high-impact media strategies and immersive experiential campaigns that refuse to be ignored.</p>
+                    <p class="hero-subtitle mt-4">We orchestrate high-impact media strategies and immersive experiential
+                        campaigns that refuse to be ignored.</p>
                     <div class="hero-buttons mt-4 d-flex flex-column flex-sm-row gap-3">
-                        <a href="#contact" class="btn btn-agency magnetic-btn">Take the First step </a>
+                        <a href="#contact" class="btn btn-agency magnetic-btn">Start The Drama</a>
                         <a href="#portfolio" class="btn btn-outline-light-custom magnetic-btn">Explore Assets</a>
                     </div>
                 </div>
@@ -1095,16 +1183,27 @@
 
         <div class="hero-marquee-wrapper">
             <div class="hero-marquee magnetic-item">
-                <span>Trusted by Moniepoint</span> <i class="fa-solid fa-asterisk"></i>
-                <span>Trusted by Coca-Cola</span> <i class="fa-solid fa-asterisk"></i>
-                <span>Trusted by itel Energy</span> <i class="fa-solid fa-asterisk"></i>
-                <span>Trusted by Knorr</span> <i class="fa-solid fa-asterisk"></i>
-                <span>Trusted by MTN</span> <i class="fa-solid fa-asterisk"></i>
-                <span>Trusted by Moniepoint</span> <i class="fa-solid fa-asterisk"></i>
-                <span>Trusted by Coca-Cola</span> <i class="fa-solid fa-asterisk"></i>
-                <span>Trusted by itel Energy</span> <i class="fa-solid fa-asterisk"></i>
-                <span>Trusted by Knorr</span> <i class="fa-solid fa-asterisk"></i>
-                <span>Trusted by MTN</span> <i class="fa-solid fa-asterisk"></i>
+                <img src="assets/img/Moniepointlogo.png" alt="Moniepoint Logo" height="40">
+                <i class="fa-solid fa-asterisk"></i>
+                <img src="assets/img/cocacola.png" alt="Coca-Cola Logo" height="40">
+                <i class="fa-solid fa-asterisk"></i>
+                <img src="assets/img/itelenergy.png" alt="itel Energy Logo" height="40">
+                <i class="fa-solid fa-asterisk"></i>
+                <img src="assets/img/knorr.png" alt="Knorr Logo" height="40">
+                <i class="fa-solid fa-asterisk"></i>
+                <img src="assets/img/mtn.png" alt="MTN Logo" height="40">
+                <i class="fa-solid fa-asterisk"></i>
+
+                <img src="assets/img/Moniepointlogo.png" alt="Moniepoint Logo" height="40">
+                <i class="fa-solid fa-asterisk"></i>
+                <img src="assets/img/cocacola.png" alt="Coca-Cola Logo" height="40">
+                <i class="fa-solid fa-asterisk"></i>
+                <img src="assets/img/itelenergy.png" alt="itel Energy Logo" height="40">
+                <i class="fa-solid fa-asterisk"></i>
+                <img src="assets/img/knorr.png" alt="Knorr Logo" height="40">
+                <i class="fa-solid fa-asterisk"></i>
+                <img src="assets/img/mtn.png" alt="MTN Logo" height="40">
+                <i class="fa-solid fa-asterisk"></i>
             </div>
         </div>
     </header>
@@ -1416,6 +1515,16 @@
             </div>
         </div>
     </footer>
+
+    <div class="whatsapp-container">
+        <div class="whatsapp-prompt">
+            Got a project? Let's talk! 👋
+        </div>
+        <a href="https://wa.me/2348068170788" class="whatsapp-float magnetic-item" target="_blank"
+            rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
