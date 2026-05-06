@@ -210,6 +210,29 @@
             background-color: var(--brand-orange);
             border-radius: 50%;
         }
+        .dropdown-menu {
+            background-color: rgba(5, 19, 36, 0.98);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 10px 0;
+            margin-top: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .dropdown-item {
+            color: rgba(255, 255, 255, 0.8) !important;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 10px 24px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover, .dropdown-item:focus {
+            background-color: rgba(255, 90, 0, 0.1);
+            color: var(--brand-orange) !important;
+        }
 
         .btn-agency {
             background: linear-gradient(45deg, var(--brand-orange), #ff7a33);
@@ -328,7 +351,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(5, 19, 36, 0.95) 0%, rgba(5, 19, 36, 0.8) 100%);
+            background: linear-gradient(135deg, rgba(5, 19, 36, 0.95) 0%, rgba(102, 136, 177, 0.8) 100%);
             z-index: 0;
         }
 
@@ -591,12 +614,26 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
                     <ul class="navbar-nav align-items-lg-center">
-                        <li class="nav-item"><a class="nav-link magnetic-item" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link active magnetic-item"
-                                href="capabilities.html">Capabilities</a></li>
+                        <li class="nav-item"><a class="nav-link magnetic-item" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link magnetic-item" href="about.html">About AI Media</a></li>
+        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle magnetic-item" href="#" id="servicesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                <li><a class="dropdown-item magnetic-item" href="ooh.html">OOH Advertising</a></li>
+                                <li><a class="dropdown-item magnetic-item" href="digital-ooh.html">Digital OOH</a></li>
+                                <li><a class="dropdown-item magnetic-item" href="media-buying.html">Media Buying</a></li>
+                                <li><a class="dropdown-item magnetic-item" href="experiential.html">Experiential Marketing</a>
+                                </li>
+                            </ul>
+                        </li>
+        
                         <li class="nav-item"><a class="nav-link magnetic-item" href="portfolio.html">Portfolio</a></li>
                         <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
-                            <a href="contact.html" class="btn btn-agency magnetic-btn">Partner With Us</a>
+                            <a href="contact.html" class="btn btn-agency magnetic-btn">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -778,7 +815,7 @@
                         <div class="cta-action-box magnetic-item">
                             <p>Stop blending in. We build immersive media experiences that demand attention and drive
                                 measurable ROI.</p>
-                            <a href="contact.html" class="cta-btn-solid magnetic-btn">
+                            <a href="start-project.html" class="cta-btn-solid magnetic-btn">
                                 Initiate Project <i class="fa-solid fa-arrow-right ms-3"></i>
                             </a>
                         </div>
@@ -815,10 +852,10 @@
                             <li class="mb-2 magnetic-item" style="display:inline-block;"><i
                                     class="fa-solid fa-envelope me-2 text-white"></i> contact@aimediang.com</li><br>
                             <li class="mb-2 magnetic-item" style="display:inline-block;"><i
-                                    class="fa-solid fa-phone me-2 text-white"></i> +234 806 817 0788</li>
+                                    class="fa-solid fa-phone me-2 text-white"></i> +234 902 240 5555</li>
                             <li class="mb-2 mt-3 d-flex align-items-start magnetic-item">
                                 <i class="fa-solid fa-location-dot me-3 mt-1 text-white"></i>
-                                <span>132b Obafemi Awolowo Way,<br>Ikeja, Lagos</span>
+                                <span>93A Opebi Road,<br>Ikeja, Lagos</span>
                             </li>
                         </ul>
                     </div>
@@ -834,7 +871,7 @@
         <div class="whatsapp-prompt">
             Got a project? Let's talk! 👋
         </div>
-        <a href="https://wa.me/2348068170788" class="whatsapp-float magnetic-item" target="_blank"
+        <a href="https://wa.me/2349022405555" class="whatsapp-float magnetic-item" target="_blank"
             rel="noopener noreferrer">
             <i class="fa-brands fa-whatsapp"></i>
         </a>

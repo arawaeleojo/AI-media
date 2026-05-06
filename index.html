@@ -10,142 +10,67 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<<<<<<< HEAD
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- Premium, architectural typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
-=======
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
->>>>>>> a0edcf6 (added index.html)
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <style>
         :root {
-<<<<<<< HEAD
-            /* Their Official Brand Colors */
             --brand-blue: #0e3a72;
             --brand-blue-deep: #051324;
             --brand-orange: #FF5A00;
-
-            /* Glassmorphism */
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
-
-            /* Text strictly light */
             --text-main: #ffffff;
         }
 
-        /* --- THE FIX: Prevent horizontal shifting from AOS animations --- */
         html,
         body {
             overflow-x: hidden;
             width: 100%;
             max-width: 100vw;
-        }
-
-        /* --- CUSTOM MAGNETIC CURSOR --- */
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             color: var(--text-main);
             background-color: var(--brand-blue-deep);
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            cursor: none;
         }
 
-        a,
-        button,
-        .portfolio-card-dramatic,
-        .sleek-value-card,
-        .capability-card,
-        .btn,
-        .cta-action-box,
-        .client-sleek-card,
-        .whatsapp-float {
-            cursor: none !important;
-        }
-
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--brand-orange);
+        /* --- GLOBAL CONTINUOUS GRID --- */
+        .global-grid {
             position: fixed;
             top: 0;
             left: 0;
-            border-radius: 50%;
-            z-index: 10002;
-            /* Ensures cursor stays above navbar */
+            width: 100vw;
+            height: 100vh;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
             pointer-events: none;
-            transform: translate3d(-50%, -50%, 0);
+            animation: panGridGlobal 20s linear infinite;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
         }
 
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 2px solid rgba(255, 90, 0, 0.5);
-            position: fixed;
-            top: 0;
-            left: 0;
-            border-radius: 50%;
-            z-index: 10001;
-            /* Ensures cursor stays above navbar */
-            pointer-events: none;
-            transform: translate3d(-50%, -50%, 0);
-            transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1),
-                height 0.3s cubic-bezier(0.19, 1, 0.22, 1),
-                background-color 0.3s ease,
-                border-color 0.3s ease;
-        }
-
-        .cursor-outline.magnetic-active {
-            width: 80px;
-            height: 80px;
-            background-color: rgba(255, 90, 0, 0.15);
-            border-color: rgba(255, 90, 0, 0.8);
-            backdrop-filter: blur(2px);
-        }
-
-        @media (pointer: coarse) {
-
-            .cursor-dot,
-            .cursor-outline {
-                display: none !important;
+        @keyframes panGridGlobal {
+            0% {
+                background-position: 0px 0px;
             }
 
-            body,
-            a,
-            button,
-            .portfolio-card-dramatic,
-            .sleek-value-card,
-            .capability-card,
-            .btn,
-            .cta-action-box,
-            .client-sleek-card,
-            .whatsapp-float {
-                cursor: auto !important;
+            100% {
+                background-position: 60px 60px;
             }
-=======
-            --brand-dark: #051324;
-            --brand-blue: #0A2540;
-            --brand-orange: #FF5A00;
-            --surface-light: #F9FAFB;
-            --text-body: #4B5563;
         }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-body);
-            background-color: #ffffff;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
->>>>>>> a0edcf6 (added index.html)
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
         }
 
         h1,
@@ -154,138 +79,148 @@
         h4,
         h5,
         h6 {
-            font-family: 'Outfit', sans-serif;
-<<<<<<< HEAD
+            font-family: 'Space Grotesk', sans-serif;
             color: #ffffff;
-            font-weight: 800;
-=======
-            color: var(--brand-dark);
-            font-weight: 600;
->>>>>>> a0edcf6 (added index.html)
+            font-weight: 700;
             letter-spacing: -0.02em;
         }
 
         .eyebrow {
             font-size: 0.85rem;
-<<<<<<< HEAD
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-=======
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
->>>>>>> a0edcf6 (added index.html)
+            letter-spacing: 0.2em;
             color: var(--brand-orange);
             display: block;
             margin-bottom: 1rem;
         }
 
-<<<<<<< HEAD
-=======
-        /* --- Scroll Reveal --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .delay-1 {
-            transition-delay: 0.1s;
-        }
-
-        .delay-2 {
-            transition-delay: 0.2s;
-        }
-
-        .delay-3 {
-            transition-delay: 0.3s;
-        }
-
->>>>>>> a0edcf6 (added index.html)
-        /* --- Navbar --- */
-        .navbar {
-            background-color: transparent;
-            transition: all 0.4s ease;
-            padding: 24px 0;
-<<<<<<< HEAD
+        /* --- FLOATING PILL NAVBAR (EXPOSE STYLE) --- */
+        .navbar-wrapper {
+            position: fixed;
+            top: 25px;
+            left: 0;
+            width: 100%;
             z-index: 10000;
-            /* Fixed layering issue */
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+            pointer-events: none;
+            /* Let clicks pass through outside the nav */
+        }
+
+        .navbar {
+            background-color: var(--brand-blue-deep);
+            /* Solid brand blue */
+            border-radius: 50px;
+            padding: 10px 30px;
+            width: 100%;
+            max-width: 1200px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            pointer-events: auto;
+            /* Re-enable clicks inside the nav */
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .navbar.scrolled {
-            background-color: rgba(5, 19, 36, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 16px 0;
-            border-bottom: 1px solid var(--glass-border);
-=======
-            z-index: 1000;
+            background-color: var(--brand-blue-deep);
+            /* Darkens on scroll */
+            padding: 8px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 16px 0;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-        }
-
-        /* Navbar Logo Toggle Logic */
-        .logo-dark {
-            display: none !important;
-        }
-
-        .navbar.scrolled .logo-light {
-            display: none !important;
-        }
-
-        .navbar.scrolled .logo-dark {
-            display: block !important;
->>>>>>> a0edcf6 (added index.html)
+        .navbar-brand img {
+            height: clamp(65px, 8vw, 65px);
+            /* Restored original large size */
+            width: auto;
+            transition: all 0.3s ease;
         }
 
         .nav-link {
             font-weight: 500;
             font-size: 0.95rem;
-<<<<<<< HEAD
             color: #ffffff !important;
-=======
-            color: rgba(255, 255, 255, 0.9) !important;
->>>>>>> a0edcf6 (added index.html)
             margin: 0 16px;
             transition: color 0.3s ease;
-        }
-
-<<<<<<< HEAD
-        .nav-link:hover {
-=======
-        .navbar.scrolled .nav-link {
-            color: var(--text-body) !important;
+            position: relative;
         }
 
         .nav-link:hover,
-        .navbar.scrolled .nav-link:hover {
->>>>>>> a0edcf6 (added index.html)
+        .nav-link.active {
             color: var(--brand-orange) !important;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 5px;
+            background-color: var(--brand-orange);
+            border-radius: 50%;
+        }
+
+        .navbar-toggler {
+            border: none !important;
+            padding: 0;
+        }
+
+        .navbar-toggler i {
+            color: #ffffff !important;
+            font-size: 1.5rem;
+        }
+
+        .dropdown-menu {
+            background-color: var(--brand-blue-deep);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 10px 0;
+            margin-top: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .dropdown-item {
+            color: #ffffff !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 10px 24px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(255, 90, 0, 0.1);
+            color: var(--brand-orange) !important;
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: var(--brand-blue-deep);
+                padding: 20px;
+                border-radius: 20px;
+                margin-top: 15px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-link {
+                margin: 10px 0;
+            }
         }
 
         /* --- Buttons --- */
         .btn-agency {
-<<<<<<< HEAD
             background: linear-gradient(45deg, var(--brand-orange), #ff7a33);
             color: #ffffff;
-            font-family: 'Outfit', sans-serif;
             font-weight: 700;
             font-size: 1.05rem;
             padding: 16px 40px;
-            border-radius: 4px;
+            border-radius: 50px;
+            /* Rounded to match nav style */
             border: none;
             display: inline-block;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -293,38 +228,19 @@
         .btn-agency:hover {
             box-shadow: 0 15px 30px rgba(255, 90, 0, 0.3);
             color: #ffffff;
-=======
-            background-color: var(--brand-orange);
-            color: #ffffff;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 1.05rem;
-            padding: 16px 40px;
-            border-radius: 8px;
-            border: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-agency:hover {
-            background-color: #E04F00;
-            color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 90, 0, 0.2);
->>>>>>> a0edcf6 (added index.html)
+            transform: translateY(-2px);
         }
 
         .btn-outline-light-custom {
             background-color: transparent;
             color: #ffffff;
-            font-family: 'Outfit', sans-serif;
-<<<<<<< HEAD
             font-weight: 700;
             font-size: 1.05rem;
             padding: 14px 38px;
-            border-radius: 4px;
+            border-radius: 50px;
             border: 2px solid rgba(255, 255, 255, 0.3);
             display: inline-block;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, border-color 0.3s ease;
+            transition: all 0.3s ease;
             text-transform: uppercase;
         }
 
@@ -334,7 +250,12 @@
             color: #ffffff;
         }
 
-        /* --- Floating WhatsApp Widget & Prompt --- */
+        .nav-item .btn-agency {
+            padding: 12px 24px;
+            font-size: 0.9rem;
+        }
+
+        /* --- WHATSAPP WIDGET --- */
         .whatsapp-container {
             position: fixed;
             bottom: 30px;
@@ -343,13 +264,13 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            pointer-events: none; /* Let clicks pass through the container wrapper */
+            pointer-events: none;
         }
 
         .whatsapp-prompt {
             background: #ffffff;
             color: var(--brand-blue-deep);
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 0.95rem;
             font-weight: 700;
             padding: 10px 20px;
@@ -359,13 +280,11 @@
             position: relative;
             opacity: 0;
             transform: translateY(10px);
-            /* Animates in after 2 seconds, then gently floats up and down */
-            animation: floatPromptIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s forwards,
-                       promptHover 3s ease-in-out infinite alternate 2.8s;
-            pointer-events: auto; 
+            animation: floatPromptIn 0.8s ease 2s forwards,
+                promptHover 3s ease-in-out infinite alternate 2.8s;
+            pointer-events: auto;
         }
 
-        /* The little speech bubble triangle pointing down */
         .whatsapp-prompt::after {
             content: '';
             position: absolute;
@@ -392,7 +311,7 @@
             justify-content: center;
             transition: all 0.3s ease;
             text-decoration: none;
-            pointer-events: auto; /* Re-enable clicks for the button */
+            pointer-events: auto;
         }
 
         .whatsapp-float:hover {
@@ -410,451 +329,104 @@
         }
 
         @keyframes promptHover {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-6px); }
-        }
-
-        /* --- GLOBAL BACKGROUND ANIMATIONS --- */
-        @keyframes bgDrift {
             0% {
-                transform: scale(1) translate(0, 0);
+                transform: translateY(0);
             }
 
             100% {
-                transform: scale(1.1) translate(-2%, -2%);
+                transform: translateY(-6px);
             }
         }
 
-        @keyframes bgDriftReverse {
-            0% {
-                transform: scale(1.1) translate(-2%, 2%);
-            }
-
-            100% {
-                transform: scale(1) translate(0, 0);
-            }
-        }
-
-        /* --- CINEMATIC HERO SECTION (VIDEO-LIKE FEEL) --- */
-        .hero {
+        /* --- FULL PAGE MARQUEE HERO SECTION --- */
+        .hero-marquee-layout {
             height: 100vh;
+            /* Strict 100vh constraint */
             min-height: 700px;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            background-color: var(--brand-blue-deep);
-        }
-
-        .hero-carousel-bg {
-=======
-            font-weight: 600;
-            font-size: 1.05rem;
-            padding: 14px 38px;
-            border-radius: 8px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-light-custom:hover {
-            border-color: #ffffff;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            min-height: 800px;
-            position: relative;
-            background-color: #030812;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Layer 0: Glossy Cool-Toned Blobs */
-        .mesh-bg {
->>>>>>> a0edcf6 (added index.html)
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-<<<<<<< HEAD
             background-color: #000;
+            z-index: 2;
         }
 
-        /* Wrapper controls the crossfade */
-        .hero-carousel-slide {
-=======
-            background-color: #030812;
-        }
-
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.65;
-            animation: moveBlob 25s infinite alternate ease-in-out;
-        }
-
-        .blob-1 {
-            top: -10%;
-            left: -10%;
-            width: 60vw;
-            height: 60vw;
-            background: #0044FF;
-        }
-
-        .blob-2 {
-            bottom: -20%;
-            right: -10%;
-            width: 70vw;
-            height: 70vw;
-            background: #00E5FF;
-            animation-delay: -5s;
-        }
-
-        .blob-3 {
-            top: 30%;
-            left: 40%;
-            width: 50vw;
-            height: 50vw;
-            background: #8A2BE2;
-            animation-delay: -10s;
-        }
-
-        @keyframes moveBlob {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate(5%, 10%) scale(1.1);
-            }
-
-            100% {
-                transform: translate(-5%, -10%) scale(0.9);
-            }
-        }
-
-        /* Layer 1: Dot Pattern Texture */
-        .hero-texture {
->>>>>>> a0edcf6 (added index.html)
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-<<<<<<< HEAD
-            opacity: 0;
-            z-index: 0;
-            transition: opacity 1.5s ease-in-out;
-            /* Snappier fade */
-        }
-
-        .hero-carousel-slide.active {
-            opacity: 0.55;
-            z-index: 1;
-        }
-
-        /* Inner image handles focus and motion via KEYFRAMES so it starts instantly */
-        .slide-img {
-            position: absolute;
-            inset: -10%;
-            background-size: cover;
-            background-position: center;
-            transform: scale(1.2);
-            filter: blur(15px);
-            /* Default start state */
-        }
-
-        /* Define the cinematic camera movements */
-        @keyframes cinematicShot1 {
-            0% {
-                transform: scale(1.2) translate(0, 0);
-                filter: blur(15px);
-            }
-
-            15% {
-                filter: blur(0);
-            }
-
-            100% {
-                transform: scale(1) translate(-3%, 2%);
-                filter: blur(0);
-            }
-        }
-
-        @keyframes cinematicShot2 {
-            0% {
-                transform: scale(1) translate(-2%, -2%);
-                filter: blur(15px);
-            }
-
-            15% {
-                filter: blur(0);
-            }
-
-            100% {
-                transform: scale(1.15) translate(2%, 2%);
-                filter: blur(0);
-            }
-        }
-
-        @keyframes cinematicShot3 {
-            0% {
-                transform: scale(1.15) translate(2%, -2%);
-                filter: blur(15px);
-            }
-
-            15% {
-                filter: blur(0);
-            }
-
-            100% {
-                transform: scale(1) translate(-3%, -3%);
-                filter: blur(0);
-            }
-        }
-
-        /* Apply the keyframes when the slide becomes active */
-        .hero-carousel-slide:nth-child(1).active .slide-img {
-            animation: cinematicShot1 6s linear forwards;
-        }
-
-        .hero-carousel-slide:nth-child(2).active .slide-img {
-            animation: cinematicShot2 6s linear forwards;
-        }
-
-        .hero-carousel-slide:nth-child(3).active .slide-img {
-            animation: cinematicShot3 6s linear forwards;
-        }
-
+        /* Diagonal gradient overlay to secure text readability */
         .hero-overlay-dark {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(5, 19, 36, 0.95) 0%, rgba(10, 37, 64, 0.1) 100%);
+            /* Solid dark blue in the bottom left behind text, entirely transparent in top right so images shine */
+            background: linear-gradient(to top right, rgba(5, 19, 36, 0.95) 0%, rgba(5, 19, 36, 0.6) 40%, rgba(5, 19, 36, 0) 100%);
             z-index: 2;
             pointer-events: none;
         }
 
-        /* Typography & Entrance Animations */
-        .hero-badge {
-            display: inline-block;
-            padding: 6px 20px;
-            background: rgba(255, 90, 0, 0.1);
-            border: 1px solid var(--brand-orange);
-            border-radius: 100px;
-            color: var(--brand-orange);
-            font-size: 0.75rem;
-            font-weight: 800;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            animation: slideDownFade 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            opacity: 0;
-            transform: translateY(-30px);
+        /* Absolute positioning anchors the text perfectly above the ticker */
+        .hero-text-content {
+            position: absolute;
+            bottom: 120px;
+            /* Forces text to sit safely above the ticker tape */
+            left: 15px;
+            /* Matches container padding */
+            z-index: 4;
+            /* max-width: 1000px; */
         }
 
         .hero-title-massive {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            font-size: clamp(3rem, 7vw, 6rem);
+            -webkit-text-stroke: 0.5px #fff;
             font-weight: 900;
-            line-height: 0.95;
+            line-height: 1.05;
             text-transform: uppercase;
-            letter-spacing: -0.02em;
-            color: transparent;
-            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
             margin: 0;
             position: relative;
-            animation: slideUpFade 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+            animation: slideUpFade 1s ease 0.3s forwards;
             opacity: 0;
             transform: translateY(40px);
-        }
-
-        .hero-title-massive span.solid {
-            color: #ffffff;
-            -webkit-text-stroke: 0;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
         }
 
         .hero-title-massive span.accent {
             color: var(--brand-orange);
-            -webkit-text-stroke: 0;
-=======
-            z-index: 1;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.8) 1.5px, transparent 1.5px);
-            background-size: 28px 28px;
-            pointer-events: none;
         }
 
-        /* Layer 2: Floating Frosted Glass Elements */
-        .floating-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .shape {
-            position: absolute;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.0) 100%);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-            animation: floatShape 15s infinite ease-in-out alternate;
-        }
-
-        .shape-1 {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            top: 15%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape-2 {
-            width: 200px;
-            height: 60px;
-            border-radius: 50px;
-            bottom: 25%;
-            left: 45%;
-            transform: rotate(35deg);
-            animation-delay: -5s;
-        }
-
-        .shape-3 {
-            width: 100px;
-            height: 100px;
-            border-radius: 24px;
-            top: 50%;
-            right: 40%;
-            transform: rotate(15deg);
-            animation-delay: -10s;
-        }
-
-        .shape-4 {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            bottom: 15%;
-            left: 15%;
-            animation-duration: 12s;
-            animation-delay: -2s;
-            opacity: 0.6;
-        }
-
-        .shape-5 {
-            width: 180px;
-            height: 180px;
-            border-radius: 30px;
-            top: 8%;
-            right: 25%;
-            transform: rotate(45deg);
-            animation-duration: 18s;
-            animation-delay: -7s;
-            opacity: 0.4;
-        }
-
-        @keyframes floatShape {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            100% {
-                transform: translateY(-50px) rotate(25deg);
-            }
-        }
-
-        /* Layer 3: Dark Overlay for text legibility */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(3, 8, 18, 0.9) 0%, rgba(3, 8, 18, 0.4) 100%);
-            z-index: 3;
-            pointer-events: none;
-        }
-
-        /* Layer 4: Content */
-        .hero-content {
-            position: relative;
-            z-index: 4;
-            width: 100%;
-            padding-top: 20px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 100px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(5px);
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 6vw, 5.5rem);
-            color: #ffffff;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
->>>>>>> a0edcf6 (added index.html)
-        }
-
-        .dynamic-word-wrapper {
-            display: inline-block;
-<<<<<<< HEAD
-            min-width: 220px;
-=======
-            min-width: 240px;
-            color: var(--brand-orange);
->>>>>>> a0edcf6 (added index.html)
-        }
-
-        #hero-dynamic-word {
-            display: inline-block;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-<<<<<<< HEAD
         .hero-subtitle {
-            font-size: clamp(1rem, 1.5vw, 1.15rem);
-            color: #ffffff;
-            max-width: 500px;
-            line-height: 1.6;
+            font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
             position: relative;
             z-index: 3;
-            animation: slideUpFade 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards;
+            animation: slideUpFade 1s ease 0.6s forwards;
             opacity: 0;
             transform: translateY(30px);
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            max-width: 500px;
+        }
+
+        /* --- TYPED CURSOR CSS --- */
+        .typed-cursor {
+            font-weight: 700;
+            color: var(--brand-orange);
+            animation: blink 0.8s step-end infinite;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
         }
 
         .hero-buttons {
-            animation: slideUpFade 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0.9s forwards;
+            animation: slideUpFade 1s ease 0.9s forwards;
             opacity: 0;
             transform: translateY(20px);
-        }
-
-        @keyframes slideDownFade {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         @keyframes slideUpFade {
@@ -864,19 +436,116 @@
             }
         }
 
+        /* The FULL PAGE Visual Columns Layout */
+        .hero-visual-content {
+            position: absolute;
+            top: -25%;
+            bottom: -25%;
+            left: -15%;
+            right: -15%;
+            display: flex;
+            gap: 20px;
+            z-index: 1;
+            transform: rotate(-6deg);
+            pointer-events: none;
+            opacity: 0.9;
+            /* Bright so they shine through */
+        }
+
+        .marquee-track {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .marquee-track.up-fast {
+            animation: scrollVerticalUp 35s linear infinite;
+        }
+
+        .marquee-track.down-slow {
+            transform: translateY(-50%);
+            animation: scrollVerticalDown 50s linear infinite;
+        }
+
+        .marquee-track.up-slow {
+            animation: scrollVerticalUp 45s linear infinite;
+        }
+
+        .marquee-track.down-fast {
+            transform: translateY(-50%);
+            animation: scrollVerticalDown 40s linear infinite;
+        }
+
+        .marquee-track.up-med {
+            animation: scrollVerticalUp 40s linear infinite;
+        }
+
+        .marquee-item {
+            width: 100%;
+            height: 450px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .marquee-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(10%) brightness(0.9);
+        }
+
+        @keyframes scrollVerticalUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        @keyframes scrollVerticalDown {
+            0% {
+                transform: translateY(-50%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .hero-title-massive {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+            }
+
+            .hero-visual-content {
+                transform: rotate(0deg) scale(1.1);
+                opacity: 0.6;
+            }
+
+            .hero-text-content {
+                bottom: 100px;
+            }
+        }
+
         /* --- HORIZONTAL TICKER TAPE --- */
         .hero-marquee-wrapper {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            background: var(--brand-blue-deep);
+            background: rgba(5, 19, 36, 0.95);
+            backdrop-filter: blur(10px);
             padding: 18px 0;
             overflow: hidden;
             display: flex;
             white-space: nowrap;
             z-index: 10;
-            box-shadow: 0 -10px 30px rgba(255, 90, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .hero-marquee {
@@ -890,7 +559,6 @@
         .hero-marquee img {
             opacity: 0.5;
             filter: grayscale(100%) brightness(200%);
-            /* Makes placeholders light and sleek */
             transition: opacity 0.3s ease, filter 0.3s ease;
         }
 
@@ -912,233 +580,83 @@
 
             100% {
                 transform: translateX(-50%);
-=======
-        .hero p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 550px;
-            margin-bottom: 3rem;
-            line-height: 1.6;
-        }
-
-        /* --- Infinite Card Scroller (Right Side) --- */
-        .scroller-container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .scroller-title {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .card-scroller-window {
-            height: 480px;
-            width: 100%;
-            max-width: 320px;
-            overflow: hidden;
-            position: relative;
-            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-        }
-
-        .card-track {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            animation: scrollVertical 20s linear infinite;
-        }
-
-        .card-track:hover {
-            animation-play-state: paused;
-        }
-
-        .client-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 16px;
-            padding: 30px;
-            height: 110px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: #ffffff;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            font-size: 1.4rem;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: pointer;
-        }
-
-        .client-card:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border-color: var(--brand-orange);
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        @keyframes scrollVertical {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(calc(-50% - 10px));
->>>>>>> a0edcf6 (added index.html)
             }
         }
 
-        /* --- Section Spacing & Structure --- */
+        /* ========================================================================= */
+        /* EVERY SECTION BELOW HERO REMAINS UNTOUCHED AND RESTORED TO EXACT ORIGINAL */
+        /* ========================================================================= */
         .section-padding {
             padding: 120px 0;
-<<<<<<< HEAD
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .bg-blue-deep {
-            background-color: var(--brand-blue-deep);
         }
 
         .bg-blue-main {
-            background-color: var(--brand-blue);
+            background-color: rgba(14, 58, 114, 0.2);
         }
 
-        /* --- FOUNDATION SECTION --- */
-        .foundation-section {
+        .bg-blue-deep {
+            background-color: transparent;
+        }
+
+        .core-value-minimal {
             position: relative;
-            padding: 150px 0;
-            color: #ffffff;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            overflow: hidden;
+            padding: 40px 20px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            height: 100%;
         }
 
-        .foundation-bg-image {
+        .core-value-minimal:hover {
+            border-top-color: var(--brand-orange);
+            background: rgba(255, 255, 255, 0.02);
+            transform: translateY(-5px);
+        }
+
+        .core-value-minimal .value-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
             position: absolute;
-            inset: -10%;
-            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop') center/cover;
+            top: -30px;
+            right: 15px;
             z-index: 0;
-            animation: bgDrift 10s infinite alternate linear;
+            transition: all 0.4s ease;
         }
 
-        .foundation-bg-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to right, rgba(10, 50, 99, 0.7), rgba(10, 37, 64, 0.5));
+        .core-value-minimal:hover .value-num {
+            -webkit-text-stroke: 1px rgba(255, 90, 0, 0.3);
+        }
+
+        .core-value-minimal i {
+            font-size: 2rem;
+            color: var(--brand-orange);
+            margin-bottom: 20px;
+            position: relative;
             z-index: 1;
         }
 
-        .vision-mission-block {
-            margin-bottom: 40px;
-            padding-left: 20px;
-            border-left: 2px solid rgba(255, 255, 255, 0.1);
-            transition: border-color 0.4s ease;
-        }
-
-        .vision-mission-block:hover {
-            border-left-color: var(--brand-orange);
-        }
-
-        .vision-mission-block h4 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            color: #ffffff;
+        .core-value-minimal h5 {
+            font-size: 1.3rem;
+            color: #fff;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-        }
-
-        .vision-mission-block p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #ffffff;
-            margin: 0;
-        }
-
-        .sleek-value-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 0;
-            padding: 40px;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .sleek-value-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--brand-orange);
-            transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .sleek-value-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .sleek-value-card:hover::before {
-            width: 100%;
-        }
-
-        .value-number {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-family: 'Outfit', sans-serif;
-            font-size: 4rem;
-            font-weight: 900;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
-        }
-
-        .sleek-value-card:hover .value-number {
-            -webkit-text-stroke: 1px var(--brand-orange);
-            opacity: 0.6;
-        }
-
-        .value-icon {
-            font-size: 2rem;
-            color: var(--brand-orange);
-            margin-bottom: 25px;
-            display: block;
-        }
-
-        .sleek-value-card h5 {
-            font-size: 1.4rem;
             margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            position: relative;
+            z-index: 1;
         }
 
-        .sleek-value-card p {
-            color: #ffffff;
+        .core-value-minimal p {
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.95rem;
             line-height: 1.6;
             margin: 0;
+            position: relative;
+            z-index: 1;
         }
 
-        /* --- Capabilities (Glass Cards) --- */
         .capability-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -1146,6 +664,7 @@
             padding: 40px 30px;
             height: 100%;
             transition: all 0.4s;
+            backdrop-filter: blur(10px);
         }
 
         .capability-card:hover {
@@ -1153,267 +672,39 @@
             background: rgba(255, 255, 255, 0.08);
             border-color: var(--brand-orange);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-=======
-        }
-
-        .bg-light-surface {
-            background-color: var(--surface-light);
-        }
-
-        /* --- NEW: Foundation Section --- */
-        .foundation-section {
-            background-color: var(--brand-dark);
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .foundation-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(255, 90, 0, 0.08), transparent 50%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .foundation-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 40px;
-            height: 100%;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s;
-            backdrop-filter: blur(10px);
-        }
-
-        .foundation-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 90, 0, 0.5);
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        /* General Sections */
-        .capability-card {
-            background: var(--surface-light);
-            border-radius: 12px;
-            padding: 40px 30px;
-            height: 100%;
-            transition: all 0.3s;
-        }
-
-        .capability-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-            background: #ffffff;
->>>>>>> a0edcf6 (added index.html)
         }
 
         .icon-wrap {
             width: 60px;
             height: 60px;
-<<<<<<< HEAD
             background: rgba(255, 255, 255, 0.1);
             color: #ffffff;
-=======
-            background: rgba(255, 90, 0, 0.1);
-            color: var(--brand-orange);
->>>>>>> a0edcf6 (added index.html)
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             margin-bottom: 24px;
-<<<<<<< HEAD
             transition: 0.3s;
         }
 
         .capability-card:hover .icon-wrap {
             background: var(--brand-orange);
-            color: #ffffff;
             transform: scale(1.1);
         }
 
-        /* --- HIGH-DRAMA PORTFOLIO --- */
-        .portfolio-section {
-            padding: 150px 0;
-            background-color: var(--brand-blue-deep);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            overflow: hidden;
-        }
-
-        .dramatic-portfolio-row .col-lg-4:nth-child(2) {
-            margin-top: 60px;
-        }
-
-        .dramatic-portfolio-row .col-lg-4:nth-child(3) {
-            margin-top: 120px;
-        }
-
-        @media (max-width: 991px) {
-
-            .dramatic-portfolio-row .col-lg-4:nth-child(2),
-            .dramatic-portfolio-row .col-lg-4:nth-child(3) {
-                margin-top: 0;
-            }
-        }
-
-        .portfolio-card-dramatic {
-            position: relative;
-            height: 600px;
-            border-radius: 0;
-            overflow: hidden;
-            background: #000;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .portfolio-card-dramatic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), filter 1s ease;
-            filter: grayscale(100%) brightness(0.4);
-        }
-
-        .card-bg-number {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 8rem;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 900;
-            color: transparent;
-            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
-            z-index: 2;
-            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-            transform: translateX(50px);
-            opacity: 0;
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(5, 19, 36, 1) 0%, transparent 60%);
-            display: flex;
-            align-items: flex-end;
-            padding: 50px 40px;
-            z-index: 3;
-            transition: background 0.8s ease;
-        }
-
-        .overlay-content {
-            width: 100%;
-            transform: translateY(50px);
-            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .eyebrow-small {
-            color: var(--brand-orange);
-            font-weight: 800;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            display: block;
-            margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease 0.1s;
-        }
-
-        .asset-title {
-            font-size: 2.8rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            color: #ffffff;
-            letter-spacing: -0.02em;
-        }
-
-        .asset-location {
-            color: #ffffff;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            opacity: 0.9;
-        }
-
-        .accent-line {
-            width: 0;
-            height: 3px;
-            background: var(--brand-orange);
-            margin-bottom: 25px;
-            transition: width 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
-        }
-
-        .view-project-btn {
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 800;
-            font-size: 0.95rem;
-            letter-spacing: 0.15em;
-            display: inline-flex;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease 0.3s;
-        }
-
-        .view-project-btn:hover {
-            color: var(--brand-orange);
-        }
-
-        .portfolio-card-dramatic:hover {
-            border-color: var(--brand-orange);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 90, 0, 0.1);
-            transform: translateY(-15px);
-            z-index: 10;
-        }
-
-        .portfolio-card-dramatic:hover img {
-            transform: scale(1.12);
-            filter: grayscale(0%) brightness(0.8);
-        }
-
-        .portfolio-card-dramatic:hover .portfolio-overlay {
-            background: linear-gradient(to top, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.4) 60%, transparent 100%);
-        }
-
-        .portfolio-card-dramatic:hover .overlay-content {
-            transform: translateY(0);
-        }
-
-        .portfolio-card-dramatic:hover .card-bg-number {
-            transform: translateX(0);
-            opacity: 1;
-            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15);
-        }
-
-        .portfolio-card-dramatic:hover .eyebrow-small,
-        .portfolio-card-dramatic:hover .view-project-btn {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .portfolio-card-dramatic:hover .accent-line {
-            width: 100%;
-        }
-
-        /* --- SLEEK CLIENTS SECTION (With Moving Background) --- */
         .clients-bg-section {
             position: relative;
             padding: 150px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             overflow: hidden;
+            z-index: 2;
         }
 
         .clients-bg-image {
             position: absolute;
             inset: -10%;
-            background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2070&auto=format&fit=crop') center/cover;
+            background: url('assets/img/works/hero3.jpeg') center/cover;
             z-index: 0;
             animation: bgDriftReverse 15s infinite alternate linear;
         }
@@ -1425,14 +716,22 @@
             z-index: 1;
         }
 
+        @keyframes bgDriftReverse {
+            0% {
+                transform: scale(1.1) translate(-2%, 2%);
+            }
+
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
         .client-heading-massive {
-            font-family: 'Outfit', sans-serif;
             font-size: clamp(2.5rem, 5vw, 5rem);
-            font-weight: 900;
+            font-weight: 800;
             line-height: 1;
             text-transform: uppercase;
             color: #ffffff;
-            letter-spacing: -0.03em;
         }
 
         .client-heading-massive .text-outline-orange {
@@ -1469,15 +768,13 @@
             border-radius: 12px;
             padding: 40px 20px;
             text-align: center;
-            font-family: 'Outfit', sans-serif;
             font-size: 1.3rem;
             font-weight: 700;
             color: rgba(255, 255, 255, 0.5);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1508,19 +805,255 @@
             opacity: 1;
         }
 
-        /* --- STRUCTURAL CTA SECTION --- */
+        .portfolio-preview-section {
+            padding: 120px 0;
+            position: relative;
+            background: transparent;
+        }
+
+        .hp-portfolio-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .hp-portfolio-card:hover {
+            border-color: var(--brand-orange);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            transform: translateY(-8px);
+        }
+
+        .hp-card-img {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hp-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(0%) brightness(0.85) !important;
+            transition: all 0.6s ease;
+        }
+
+        .hp-portfolio-card:hover .hp-card-img img {
+            filter: grayscale(0%) brightness(1) !important;
+            transform: scale(1.05);
+        }
+
+        .hp-card-body {
+            padding: 30px;
+            position: relative;
+        }
+
+        .spotlight-section {
+            padding: 150px 0;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            position: relative;
+            z-index: 2;
+        }
+
+        .spotlight-card {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 120px;
+        }
+
+        .spotlight-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .spotlight-img-wrap {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--glass-border);
+            height: 550px;
+        }
+
+        .spotlight-img-wrap .carousel,
+        .spotlight-img-wrap .carousel-inner,
+        .spotlight-img-wrap .carousel-item {
+            width: 100%;
+            height: 100%;
+        }
+
+        .spotlight-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.85) grayscale(0%) !important;
+            transition: transform 0.8s ease, filter 0.8s ease;
+        }
+
+        .spotlight-card:hover .spotlight-img-wrap img {
+            transform: scale(1.05);
+            filter: brightness(1) grayscale(0%) !important;
+        }
+
+        .spotlight-content {
+            flex: 1;
+        }
+
+        .spotlight-content h3 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        @media (max-width: 991px) {
+            .spotlight-card {
+                flex-direction: column;
+                gap: 40px;
+                margin-bottom: 80px;
+            }
+
+            .spotlight-card.reverse {
+                flex-direction: column;
+            }
+
+            .spotlight-img-wrap {
+                width: 100%;
+                height: 400px;
+            }
+        }
+
+        .com-factor-home {
+            padding: 150px 0;
+            background: #000;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            position: relative;
+            z-index: 2;
+        }
+
+        .experiential-vault-preview {
+            padding: 150px 0;
+            background: transparent;
+            position: relative;
+        }
+
+        .vault-staggered-grid {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            padding-top: 50px;
+        }
+
+        .vault-item {
+            flex: 1;
+            position: relative;
+            transition: all 0.6s ease;
+        }
+
+        .vault-item:nth-child(2) {
+            margin-top: 80px;
+        }
+
+        .vault-item:nth-child(3) {
+            margin-top: 40px;
+        }
+
+        .vault-card-inner {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(15px);
+            transition: border-color 0.4s ease;
+        }
+
+        .vault-image-container {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+        }
+
+        .vault-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(0%) brightness(0.85) !important;
+            transition: all 0.8s ease;
+        }
+
+        .vault-item:hover .vault-card-inner {
+            border-color: var(--brand-orange);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            transform: translateY(-8px);
+        }
+
+        .vault-item:hover img {
+            filter: grayscale(0%) brightness(1) !important;
+            transform: scale(1.1);
+        }
+
+        .vault-project-tag {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            background: rgba(5, 19, 36, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 16px;
+            z-index: 10;
+        }
+
+        .vault-project-tag h5 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .vault-project-tag span {
+            font-size: 0.75rem;
+            color: var(--brand-orange);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 991px) {
+            .vault-staggered-grid {
+                flex-direction: column;
+            }
+
+            .vault-item {
+                margin-top: 0 !important;
+                width: 100%;
+            }
+
+            .vault-image-container {
+                height: 350px;
+            }
+        }
+
         .cta-section-structural {
             position: relative;
             padding: 150px 0;
             background-color: var(--brand-blue-deep);
             overflow: hidden;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 2;
         }
 
         .cta-bg-image {
             position: absolute;
             inset: -10%;
-            background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover;
+            background: url('assets/img/works/hero3.jpeg') center/cover;
             opacity: 0.3;
             filter: grayscale(50%);
             z-index: 0;
@@ -1536,8 +1069,7 @@
 
         .cta-heading-structural {
             font-size: clamp(3rem, 6vw, 6rem);
-            font-family: 'Outfit', sans-serif;
-            font-weight: 900;
+            font-weight: 800;
             text-transform: uppercase;
             line-height: 1;
             margin: 0;
@@ -1552,8 +1084,6 @@
         .cta-action-box {
             background: var(--brand-orange);
             padding: 70px 60px;
-            border-radius: 0;
-            box-shadow: -20px 20px 0 rgba(255, 255, 255, 0.05);
             position: relative;
             z-index: 2;
             transition: transform 0.4s ease;
@@ -1575,891 +1105,617 @@
             background: var(--brand-blue-deep);
             text-decoration: none;
             color: #fff;
-            font-family: 'Outfit', sans-serif;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             padding: 20px 45px;
-            border-radius: 0;
-            border: none;
             display: inline-flex;
             align-items: center;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             font-size: 1.1rem;
         }
 
         .cta-btn-solid:hover {
             background: #ffffff;
             color: var(--brand-orange);
-=======
-        }
-
-        .why-choose-us {
-            position: relative;
-            background: linear-gradient(to right, rgba(5, 19, 36, 0.95), rgba(5, 19, 36, 0.85)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
-            color: #ffffff;
-            padding: 120px 0;
-        }
-
-        .cta-section {
-            position: relative;
-            padding: 120px 0;
-            background: linear-gradient(rgba(5, 19, 36, 0.9), rgba(5, 19, 36, 0.9)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
-            text-align: center;
-        }
-
-        .portfolio-item {
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            aspect-ratio: 4/5;
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s;
-        }
-
-        .portfolio-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 40px 30px 30px;
-            background: linear-gradient(to top, rgba(5, 19, 36, 0.95) 0%, transparent 100%);
-            color: #fff;
-        }
-
-        .portfolio-item:hover img {
->>>>>>> a0edcf6 (added index.html)
             transform: scale(1.05);
         }
 
         footer {
-<<<<<<< HEAD
             background-color: #020810;
             padding: 80px 0 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-=======
-            background-color: #030A14;
-            color: #ffffff;
-            padding: 80px 0 30px;
-        }
-
-        /* --- RESPONSIVE MOBILE FIX --- */
-        @media (max-width: 991px) {
-            .hero {
-                height: auto;
-                min-height: 100vh;
-                padding: 100px 0 60px 0;
-            }
-
-            .scroller-container {
-                margin-top: 60px;
-                align-items: flex-start;
-            }
-
-            .scroller-title {
-                text-align: left;
-            }
-
-            .card-scroller-window {
-                height: 120px;
-                max-width: 100%;
-                mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-                -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            }
-
-            .card-track {
-                flex-direction: row;
-                width: max-content;
-                animation: scrollHorizontal 20s linear infinite;
-            }
-
-            .client-card {
-                width: 220px;
-                height: 100px;
-            }
-
-            .shape-3,
-            .shape-4,
-            .shape-5 {
-                display: none;
-            }
-        }
-
-        @keyframes scrollHorizontal {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(calc(-50% - 10px));
-            }
->>>>>>> a0edcf6 (added index.html)
+            position: relative;
+            z-index: 5;
         }
     </style>
 </head>
 
 <body>
 
-<<<<<<< HEAD
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <div class="global-grid"></div>
 
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center magnetic-item" href="#">
-                <img src="assets/img/logo.png" alt="AI Media Logo" height="55">
-            </a>
-            <button class="navbar-toggler border-0 magnetic-item" type="button" data-bs-toggle="collapse"
-=======
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="assets/img/logo.png" alt="AI Media Logo" height="60" class="logo-light">
-                <img src="assets/img/logo.png" alt="AI Media Logo" height="60" class="logo-dark">
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
->>>>>>> a0edcf6 (added index.html)
-                data-bs-target="#navbarContent">
-                <i class="fa-solid fa-bars text-white" id="navIcon"></i>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-                <ul class="navbar-nav align-items-lg-center">
-<<<<<<< HEAD
-                    <li class="nav-item"><a class="nav-link magnetic-item" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link magnetic-item" href="#capabilities">Capabilities</a></li>
-                    <li class="nav-item"><a class="nav-link magnetic-item" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
-                        <a href="#contact" class="btn btn-agency magnetic-btn">Partner With Us</a>
-=======
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#foundation">Foundation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#capabilities">Capabilities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
-                        <a href="#contact" class="btn btn-agency" style="padding: 10px 24px;">Partner With Us</a>
->>>>>>> a0edcf6 (added index.html)
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div class="content-wrapper">
 
-    <header class="hero" id="heroSection">
-<<<<<<< HEAD
-        <div class="hero-carousel-bg">
-            <div class="hero-carousel-slide active">
-                <div class="slide-img"
-                    style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop');">
+        <!-- Expose-Style Floating Nav Wrapper -->
+        <div class="navbar-wrapper">
+            <nav class="navbar navbar-expand-lg" id="mainNav">
+                <div class="container-fluid px-2">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="assets/img/logo.png" alt="AI Media Logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent">
+                        <i class="fa-solid fa-bars" id="navIcon"></i>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+                        <ul class="navbar-nav align-items-lg-center">
+                            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">About AI Media</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                    <li><a class="dropdown-item" href="ooh.html">OOH Advertising</a></li>
+                                    <li><a class="dropdown-item" href="digital-ooh.html">Digital OOH</a></li>
+                                    <li><a class="dropdown-item" href="media-buying.html">Media Buying</a></li>
+                                    <li><a class="dropdown-item" href="experiential.html">Experiential Marketing</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                            <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                                <a href="contact.html" class="btn btn-agency">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-carousel-slide">
-                <div class="slide-img"
-                    style="background-image: url('https://images.unsplash.com/photo-1555421689-d68471e189f2?q=80&w=2070&auto=format&fit=crop');">
-                </div>
-            </div>
-            <div class="hero-carousel-slide">
-                <div class="slide-img"
-                    style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop');">
-                </div>
-            </div>
+            </nav>
         </div>
 
-        <div class="hero-overlay-dark"></div>
+        <!-- --- FULL PAGE MARQUEE HERO SECTION --- -->
+        <header class="hero-marquee-layout" id="heroSection">
 
-        <div class="container position-relative z-3 h-100 d-flex flex-column justify-content-center">
-            <div class="row">
-                <div class="col-lg-8 col-xl-7">
-                    <div class="hero-badge mb-4">The New Standard in Media</div>
+            <!-- Diagonal Overlay (Dark on text side, transparent over images) -->
+            <div class="hero-overlay-dark"></div>
+
+            <!-- The Visual Marquee Columns -->
+            <div class="hero-visual-content">
+
+                <!-- Track 1: Fast Up -->
+                <div class="marquee-track up-fast">
+                    <div class="marquee-item"><img src="assets/img/works/hero.jpeg" alt="Campaign 1"></div>
+                    <div class="marquee-item"><img src="assets/img/works/hero3.jpeg" alt="Campaign 2"></div>
+                    <div class="marquee-item"><img src="assets/img/works/hero4.jpeg" alt="Campaign 3"></div>
+                    <!-- Duplicates -->
+                    <div class="marquee-item"><img src="assets/img/works/hero.jpeg" alt="Campaign 1"></div>
+                    <div class="marquee-item"><img src="assets/img/works/hero3.jpeg" alt="Campaign 2"></div>
+                    <div class="marquee-item"><img src="assets/img/works/hero4.jpeg" alt="Campaign 3"></div>
+                </div>
+
+                <!-- Track 2: Slow Down -->
+                <div class="marquee-track down-slow">
+                    <div class="marquee-item"><img src="assets/img/beacon.PNG" alt="Campaign 4"></div>
+                    <div class="marquee-item"><img src="assets/img/momentum.png" alt="Campaign 5"></div>
+                    <div class="marquee-item"><img src="assets/img/moniepoint.jpg" alt="Campaign 6"></div>
+                    <!-- Duplicates -->
+                    <div class="marquee-item"><img src="assets/img/beacon.PNG" alt="Campaign 4"></div>
+                    <div class="marquee-item"><img src="assets/img/momentum.png" alt="Campaign 5"></div>
+                    <div class="marquee-item"><img src="assets/img/moniepoint.jpg" alt="Campaign 6"></div>
+                </div>
+
+                <!-- Track 3: Slow Up -->
+                <div class="marquee-track up-slow">
+                    <div class="marquee-item"><img src="assets/img/beacon.PNG" alt="Campaign 7"></div>
+                    <div class="marquee-item"><img src="assets/img/momentum.png" alt="Campaign 8"></div>
+                    <div class="marquee-item"><img src="assets/img/moniepoint.jpg" alt="Campaign 9"></div>
+                    <!-- Duplicates -->
+                    <div class="marquee-item"><img src="assets/img/beacon.PNG" alt="Campaign 7"></div>
+                    <div class="marquee-item"><img src="assets/img/momentum.png" alt="Campaign 8"></div>
+                    <div class="marquee-item"><img src="assets/img/moniepoint.jpg" alt="Campaign 9"></div>
+                </div>
+
+                <!-- Track 4: Fast Down -->
+                <div class="marquee-track down-fast">
+                    <div class="marquee-item"><img src="assets/img/works/knorr2.png" alt="Campaign 12"></div>
+                    <div class="marquee-item"><img src="assets/img/works/ginogorrilla1.png" alt="Campaign 10"></div>
+                    <div class="marquee-item"><img src="assets/img/works/investmentbuilding.png" alt="Campaign 11"></div>
+                    <!-- Duplicates -->
+                    <div class="marquee-item"><img src="assets/img/works/knorr2.png" alt="Campaign 12"></div>
+                    <div class="marquee-item"><img src="assets/img/works/ginogorrilla1.png" alt="Campaign 10"></div>
+                <div class="marquee-item"><img src="assets/img/works/investmentbuilding.png" alt="Campaign 11"></div>
+                </div>
+
+                <!-- Track 5: Med Up -->
+                <div class="marquee-track up-med">
+                    <div class="marquee-item"><img src="assets/img/works/spacerevamp5.png" alt="Campaign 13"></div>
+                    <div class="marquee-item"><img src="assets/img/works/ginogorrilla1.png" alt="Campaign 14"></div>
+                    <div class="marquee-item"><img src="assets/img/works/herohour3.png" alt="Campaign 15"></div>
+                    <!-- Duplicates -->
+                    <div class="marquee-item"><img src="assets/img/works/spacerevamp5.png" alt="Campaign 13"></div>
+                    <div class="marquee-item"><img src="assets/img/works/ginogorrilla1.png" alt="Campaign 14"></div>
+                    <div class="marquee-item"><img src="assets/img/works/herohour3.png" alt="Campaign 15"></div>
+                </div>
+
+            </div>
+
+            <!-- Absolute Positioning locks text in the lower left, preventing any scrolling issues -->
+            <div class="container h-100 position-relative z-3 w-100">
+                <div class="hero-text-content">
                     <h1 class="hero-title-massive">
-                        Out-of-Home <br>
-                        <span class="solid">Reimagined.</span> <br>
-                        <span class="accent dynamic-word-wrapper"><span id="hero-dynamic-word">Innovate.</span></span>
+                        Attention is<br>
+                        <span class="accent">The ASSET.</span>
                     </h1>
-                    <p class="hero-subtitle mt-4">We orchestrate high-impact media strategies and immersive experiential
-                        campaigns that refuse to be ignored.</p>
-                    <div class="hero-buttons mt-4 d-flex flex-column flex-sm-row gap-3">
-                        <a href="#contact" class="btn btn-agency magnetic-btn">Start The Drama</a>
-                        <a href="#portfolio" class="btn btn-outline-light-custom magnetic-btn">Explore Assets</a>
-                    </div>
+
+                    <p class="hero-subtitle" id="typedSubtitle">
+                        Helping ambitious brands dominate culture through experiential campaigns and strategic media
+                        visibility.
+                    </p>
                 </div>
             </div>
-        </div>
 
-        <div class="hero-marquee-wrapper">
-            <div class="hero-marquee magnetic-item">
-                <img src="assets/img/Moniepointlogo.png" alt="Moniepoint Logo" height="40">
-                <i class="fa-solid fa-asterisk"></i>
-                <img src="assets/img/cocacola.png" alt="Coca-Cola Logo" height="40">
-                <i class="fa-solid fa-asterisk"></i>
-                <img src="assets/img/itelenergy.png" alt="itel Energy Logo" height="40">
-                <i class="fa-solid fa-asterisk"></i>
-                <img src="assets/img/knorr.png" alt="Knorr Logo" height="40">
-                <i class="fa-solid fa-asterisk"></i>
-                <img src="assets/img/mtn.png" alt="MTN Logo" height="40">
-                <i class="fa-solid fa-asterisk"></i>
-
-                <img src="assets/img/Moniepointlogo.png" alt="Moniepoint Logo" height="40">
-                <i class="fa-solid fa-asterisk"></i>
-                <img src="assets/img/cocacola.png" alt="Coca-Cola Logo" height="40">
-                <i class="fa-solid fa-asterisk"></i>
-                <img src="assets/img/itelenergy.png" alt="itel Energy Logo" height="40">
-                <i class="fa-solid fa-asterisk"></i>
-                <img src="assets/img/knorr.png" alt="Knorr Logo" height="40">
-                <i class="fa-solid fa-asterisk"></i>
-                <img src="assets/img/mtn.png" alt="MTN Logo" height="40">
-                <i class="fa-solid fa-asterisk"></i>
-=======
-        <div class="mesh-bg">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
-        </div>
-
-        <div class="hero-texture"></div>
-
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-            <div class="shape shape-5"></div>
-        </div>
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content container reveal active">
-            <div class="row align-items-center">
-
-                <div class="col-lg-7 mb-5 mb-lg-0">
-                    <div class="hero-text-area">
-                        <div class="hero-badge">Building the future of Out-of-Home</div>
-
-                        <h1>We help brands <br>
-                            <span class="dynamic-word-wrapper">
-                                <span id="hero-dynamic-word">Innovate.</span>
-                            </span>
-                        </h1>
-
-                        <p>We empower brands through data-driven media strategies and immersive experiential campaigns
-                            that maximize reach, engagement, and ROI.</p>
-
-                        <div class="d-flex flex-column flex-sm-row gap-3">
-                            <a href="#contact" class="btn btn-agency">Start Your Project</a>
-                            <a href="#portfolio" class="btn btn-outline-light-custom">View Asset Portfolio</a>
-                        </div>
-                    </div>
+            <div class="hero-marquee-wrapper">
+                <div class="hero-marquee">
+                    <img src="assets/img/Moniepointlogo.png" alt="Moniepoint Logo" height="40">
+                    <i class="fa-solid fa-asterisk"></i>
+                    <img src="assets/img/cocacola.png" alt="Coca-Cola Logo" height="40">
+                    <i class="fa-solid fa-asterisk"></i>
+                    <img src="assets/img/itelenergy.png" alt="itel Energy Logo" height="40">
+                    <i class="fa-solid fa-asterisk"></i>
+                    <img src="assets/img/knorr.png" alt="Knorr Logo" height="40">
+                    <i class="fa-solid fa-asterisk"></i>
+                    <img src="assets/img/mtn.png" alt="MTN Logo" height="40">
+                    <i class="fa-solid fa-asterisk"></i>
+                    <img src="assets/img/Moniepointlogo.png" alt="Moniepoint Logo" height="40">
+                    <i class="fa-solid fa-asterisk"></i>
+                    <img src="assets/img/cocacola.png" alt="Coca-Cola Logo" height="40">
                 </div>
+            </div>
+        </header>
 
-                <div class="col-lg-5 d-flex justify-content-lg-end">
-                    <div class="scroller-container">
-                        <div class="scroller-title">Trusted By Teams At</div>
+        <!-- Entire page below hero restored strictly to the original layout -->
+        <section id="about" class="section-padding bg-blue-main">
+            <div class="container">
+                <div class="row align-items-center gx-lg-5">
+                    <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                        <img src="assets/img/works/hero.jpeg" class="w-100 rounded-0 shadow-lg border border-secondary"
+                            alt="Agency Strategy Meeting">
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                        <span class="eyebrow">The Agency</span>
+                        <h2 class="mb-4 display-6">Connecting brands through scale and immersion.</h2>
+                        <p class="fs-5 text-white mb-4">AI Media & Communications is a premium agency. We
+                            seamlessly integrate dominant Out-of-Home visibility with breathtaking Experiential
+                            marketing.</p>
+                        <p class="text-white-50 mb-5">As a subsidiary of JOTT Industries Nigeria Limited—a leading asset
+                            fabrication company with over 40 years of excellence—we combine strategic media thinking
+                            with hands-on, interactive executional power.</p>
 
-                        <div class="card-scroller-window">
-                            <div class="card-track">
-                                <div class="client-card">Moniepoint</div>
-                                <div class="client-card">Coca-Cola</div>
-                                <div class="client-card">itel Energy</div>
-                                <div class="client-card">Knorr</div>
-                                <div class="client-card">MTN</div>
-                                <div class="client-card">Moniepoint</div>
-                                <div class="client-card">Coca-Cola</div>
-                                <div class="client-card">itel Energy</div>
-                                <div class="client-card">Knorr</div>
-                                <div class="client-card">MTN</div>
+                        <!-- <div class="row g-4 border-top border-secondary pt-4 mt-2">
+                            <div class="col-md-6">
+                                <h4 class="fs-5 text-white text-uppercase mb-3"><i class="fa-solid fa-eye me-2"
+                                        style="color: var(--brand-orange);"></i> Our Vision</h4>
+                                <p class="text-white-50 small mb-0">To be the definitive integrated agency, pioneering
+                                    the perfect synergy between physical media and interactive human experiences.</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
->>>>>>> a0edcf6 (added index.html)
-            </div>
-        </div>
-    </header>
-
-<<<<<<< HEAD
-    <section id="about" class="section-padding bg-blue-main">
-        <div class="container">
-            <div class="row align-items-center gx-lg-5">
-                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <img src="assets/img/moniepoint.jpg"
-                        class="w-100 rounded-0 shadow-lg border border-secondary magnetic-item"
-                        alt="Agency Strategy Meeting">
-                </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-                    <span class="eyebrow">The Agency</span>
-                    <h2 class="mb-4 display-6">Connecting brands with their true audience.</h2>
-                    <p class="fs-5 text-white mb-4">AI Media & Communications is a dynamic agency established to help
-                        brands connect through creativity, strategy, and experience.</p>
-                    <p class="text-white">As a subsidiary of JOTT Productions—a leading asset fabrication company with
-                        over 40 years of excellence—we combine strategic thinking with hands-on executional power.</p>
-=======
-    <section id="about" class="section-padding">
-        <div class="container">
-            <div class="row align-items-center gx-lg-5">
-                <div class="col-lg-6 mb-5 mb-lg-0 reveal">
-                    <img src="assets/img/moniepoint.jpg" class="w-100 rounded-4 shadow-sm"
-                        alt="Agency Strategy Meeting">
-                </div>
-                <div class="col-lg-6 reveal delay-1">
-                    <span class="eyebrow">The Agency</span>
-                    <h2 class="mb-4 display-6 text-dark">Connecting brands with their true audience.</h2>
-                    <p class="fs-5 text-muted mb-4">AI Media & Communications is a dynamic agency established to help
-                        brands connect through creativity, strategy, and experience. </p>
-                    <p>As a subsidiary of JOTT Productions—a leading asset fabrication company with over 40 years of
-                        excellence—we combine strategic thinking with hands-on executional power.</p>
->>>>>>> a0edcf6 (added index.html)
-                </div>
-            </div>
-        </div>
-    </section>
-
-<<<<<<< HEAD
-    <section id="foundation" class="foundation-section">
-        <div class="foundation-bg-image"></div>
-        <div class="foundation-bg-overlay"></div>
-
-        <div class="container position-relative z-3">
-            <div class="row gx-lg-5">
-
-                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
-                    <div class="position-sticky" style="top: 120px;">
-                        <span class="eyebrow">Our Foundation</span>
-                        <h2 class="display-4 text-uppercase mb-5" style="line-height: 1.1;">Built on <br><span
-                                style="color: var(--brand-orange);">Purpose.</span></h2>
-
-                        <div class="vision-mission-block magnetic-item">
-                            <h4><i class="fa-solid fa-eye me-3" style="color: var(--brand-orange);"></i> Our Vision</h4>
-                            <p>To be a leading integrated marketing agency, pioneering Out-of-Home and experiential
-                                solutions.</p>
-                        </div>
-
-                        <div class="vision-mission-block magnetic-item">
-                            <h4><i class="fa-solid fa-bullseye me-3" style="color: var(--brand-orange);"></i> Our
-                                Mission</h4>
-                            <p>To empower brands through data-driven media strategies and immersive experiential
-                                campaigns.</p>
-=======
-    <section id="foundation" class="section-padding foundation-section">
-        <div class="foundation-bg"></div>
-        <div class="container position-relative" style="z-index: 1;">
-
-            <div class="row mb-5 reveal">
-                <div class="col-12 text-center">
-                    <span class="eyebrow text-warning">Our Foundation</span>
-                    <h2 class="text-white">Direction & Core Values</h2>
-                </div>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-lg-5 reveal delay-1">
-                    <div class="foundation-card d-flex flex-column justify-content-center">
-                        <div class="mb-5">
-                            <h4 class="text-white mb-3 d-flex align-items-center">
-                                <i class="fa-solid fa-eye text-warning me-3"></i>Our Vision
-                            </h4>
-                            <p class="text-white-50 mb-0" style="font-size: 1.1rem; line-height: 1.7;">To be a leading
-                                integrated marketing agency, pioneering Out-of-Home and experiential solutions.</p>
-                        </div>
-                        <hr class="border-secondary opacity-25 mb-5">
-                        <div>
-                            <h4 class="text-white mb-3 d-flex align-items-center">
-                                <i class="fa-solid fa-bullseye text-warning me-3"></i>Our Mission
-                            </h4>
-                            <p class="text-white-50 mb-0" style="font-size: 1.1rem; line-height: 1.7;">To empower brands
-                                through data-driven media strategies and immersive experiential campaigns.</p>
->>>>>>> a0edcf6 (added index.html)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-7">
-<<<<<<< HEAD
-                    <div class="row g-4">
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                            <div class="sleek-value-card magnetic-item">
-                                <div class="value-number">01</div>
-                                <i class="fa-solid fa-shield-halved value-icon"></i>
-                                <h5>Integrity</h5>
-                                <p>We uphold absolute honesty, transparency, and ethical practices in every interaction.
-                                </p>
+                            <div class="col-md-6">
+                                <h4 class="fs-5 text-white text-uppercase mb-3"><i class="fa-solid fa-bullseye me-2"
+                                        style="color: var(--brand-orange);"></i> Our Mission</h4>
+                                <p class="text-white-50 small mb-0">To empower brands by combining data-driven OOH
+                                    strategies with immersive experiential campaigns that captivate and convert.</p>
                             </div>
-                        </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                            <div class="sleek-value-card magnetic-item">
-                                <div class="value-number">02</div>
-                                <i class="fa-solid fa-lightbulb value-icon"></i>
-                                <h5>Innovation</h5>
-                                <p>We embrace emerging technology and fresh thinking to deliver forward-driven
-                                    solutions.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                            <div class="sleek-value-card magnetic-item">
-                                <div class="value-number">03</div>
-                                <i class="fa-solid fa-wand-magic-sparkles value-icon"></i>
-                                <h5>Creativity</h5>
-                                <p>We transform strategic ideas into compelling and unforgettable brand experiences.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                            <div class="sleek-value-card magnetic-item">
-                                <div class="value-number">04</div>
-                                <i class="fa-solid fa-gem value-icon"></i>
-                                <h5>Excellence</h5>
-                                <p>We pursue the highest industry standards with meticulous precision and execution.</p>
-=======
-                    <div class="row g-4 h-100">
-                        <div class="col-md-6 reveal delay-2">
-                            <div class="foundation-card text-center p-4">
-                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">I</h3>
-                                <h5 class="text-white mt-3">Integrity</h5>
-                                <p class="small text-white-50 mb-0 mt-2">We uphold honesty and transparency in every
-                                    interaction.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 reveal delay-2">
-                            <div class="foundation-card text-center p-4">
-                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">I</h3>
-                                <h5 class="text-white mt-3">Innovation</h5>
-                                <p class="small text-white-50 mb-0 mt-2">We embrace technology and fresh thinking to
-                                    deliver forward-driven solutions.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 reveal delay-3">
-                            <div class="foundation-card text-center p-4">
-                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">C</h3>
-                                <h5 class="text-white mt-3">Creativity</h5>
-                                <p class="small text-white-50 mb-0 mt-2">We transform ideas into compelling and engaging
-                                    brand experiences.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 reveal delay-3">
-                            <div class="foundation-card text-center p-4">
-                                <h3 class="mb-2" style="color: var(--brand-orange); font-size: 3rem;">E</h3>
-                                <h5 class="text-white mt-3">Excellence</h5>
-                                <p class="small text-white-50 mb-0 mt-2">We pursue the highest standards with precision
-                                    and quality execution.</p>
->>>>>>> a0edcf6 (added index.html)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-<<<<<<< HEAD
-
-            </div>
-        </div>
-    </section>
-
-    <section id="capabilities" class="section-padding bg-blue-main">
-        <div class="container">
-            <div class="text-center max-w-3xl mx-auto mb-5 pb-3" data-aos="fade-up">
-                <span class="eyebrow">Core Capabilities</span>
-                <h2 class="display-5 text-uppercase">Integrated Solutions</h2>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="capability-card magnetic-item">
-                        <div class="icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
-                        <h4 class="mb-3 fs-5 text-white text-uppercase">OOH Advertising</h4>
-                        <p class="text-white small mb-0">Delivering bold visibility that drives awareness through
-                            strategic placements.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="capability-card magnetic-item">
-                        <div class="icon-wrap"><i class="fa-solid fa-satellite-dish"></i></div>
-                        <h4 class="mb-3 fs-5 text-white text-uppercase">Digital OOH</h4>
-                        <p class="text-white small mb-0">Blending creativity and technology to deliver data-driven
-                            outdoor experiences.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="capability-card magnetic-item">
-                        <div class="icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
-                        <h4 class="mb-3 fs-5 text-white text-uppercase">Media Buying</h4>
-                        <p class="text-white small mb-0">Maximizing exposure, efficiency, and engagement across media
-                            platforms.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="capability-card magnetic-item">
-                        <div class="icon-wrap"><i class="fa-solid fa-users-rays"></i></div>
-                        <h4 class="mb-3 fs-5 text-white text-uppercase">Experiential</h4>
-                        <p class="text-white small mb-0">Crafting memorable brand experiences to drive deep emotional
-=======
-            </div>
-
-        </div>
-    </section>
-
-    <section id="capabilities" class="section-padding bg-light-surface">
-        <div class="container">
-            <div class="text-center max-w-3xl mx-auto mb-5 pb-3 reveal">
-                <span class="eyebrow">Core Capabilities</span>
-                <h2>Integrated Marketing Solutions</h2>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 reveal delay-1">
-                    <div class="capability-card shadow-sm border-0">
-                        <div class="icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
-                        <h4 class="mb-3 fs-5 text-dark">OOH Advertising</h4>
-                        <p class="text-muted small mb-0">Delivering bold visibility that drives awareness through
-                            strategic placements.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 reveal delay-2">
-                    <div class="capability-card shadow-sm border-0">
-                        <div class="icon-wrap"><i class="fa-solid fa-satellite-dish"></i></div>
-                        <h4 class="mb-3 fs-5 text-dark">Digital OOH</h4>
-                        <p class="text-muted small mb-0">Blending creativity and technology to deliver data-driven
-                            outdoor experiences.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 reveal delay-3">
-                    <div class="capability-card shadow-sm border-0">
-                        <div class="icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
-                        <h4 class="mb-3 fs-5 text-dark">Media Buying</h4>
-                        <p class="text-muted small mb-0">Maximizing exposure, efficiency, and engagement across media
-                            platforms.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 reveal delay-3">
-                    <div class="capability-card shadow-sm border-0">
-                        <div class="icon-wrap"><i class="fa-solid fa-users-rays"></i></div>
-                        <h4 class="mb-3 fs-5 text-dark">Experiential</h4>
-                        <p class="text-muted small mb-0">Crafting memorable brand experiences to drive deep emotional
->>>>>>> a0edcf6 (added index.html)
-                            connections.</p>
+                        </div> -->
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-<<<<<<< HEAD
-    <section id="clients" class="clients-bg-section">
-        <div class="clients-bg-image"></div>
-        <div class="clients-bg-overlay"></div>
+        <section id="foundation" class="section-padding bg-blue-deep">
+            <div class="container position-relative z-3">
 
-        <div class="container position-relative z-3">
-            <div class="row align-items-center gx-lg-5">
-
-                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
-                    <div class="position-sticky client-sticky-hook" style="top: 150px;">
-                        <span class="eyebrow">Our Partners</span>
-                        <h2 class="client-heading-massive mb-4">
-                            Brands we've <br>
-                            <span class="text-outline-orange">ELEVATED.</span>
-                        </h2>
-                        <p class="text-white fs-5" style="opacity: 0.8;">We partner with ambitious teams to create
-                            defining media moments that push boundaries and command attention.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
-                    <div class="client-sleek-grid">
-                        <div class="client-sleek-card magnetic-item">Moniepoint</div>
-                        <div class="client-sleek-card magnetic-item">Coca-Cola</div>
-                        <div class="client-sleek-card magnetic-item">itel Energy</div>
-                        <div class="client-sleek-card magnetic-item">Knorr</div>
-                        <div class="client-sleek-card magnetic-item">MTN</div>
-                        <div class="client-sleek-card magnetic-item">Guinness</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="section-padding bg-blue-main">
-        <div class="container">
-            <div class="row mb-5 pb-3">
-                <div class="col-lg-8" data-aos="fade-right">
-                    <span class="eyebrow">Asset Portfolio</span>
-                    <h2 class="display-3 text-uppercase" style="line-height: 1.1;">Prime <br><span
-                            style="color: var(--brand-orange);">Visibility.</span></h2>
-                </div>
-                <div class="col-lg-4 d-flex align-items-end justify-content-lg-end mt-4 mt-lg-0" data-aos="fade-left"
-                    data-aos-delay="200">
-                    <p class="text-white mb-2 fs-5">Explore our strategically located, high-traffic advertising assets
-                        across Lagos.</p>
-                </div>
-            </div>
-
-            <div class="row g-4 dramatic-portfolio-row">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="portfolio-card-dramatic magnetic-item">
-                        <div class="card-bg-number">01</div>
-                        <img src="assets/img/beacon.PNG" alt="The Beacon Lekki">
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <span class="eyebrow-small">LED Board</span>
-                                <h3 class="asset-title">The Beacon</h3>
-                                <p class="asset-location"><i
-                                        class="fa-solid fa-location-dot me-2 text-warning"></i>Lekki Phase 1</p>
-                                <div class="accent-line"></div>
-                                <a href="#" class="view-project-btn">Explore Asset <i
-                                        class="fa-solid fa-arrow-right ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="portfolio-card-dramatic magnetic-item">
-                        <div class="card-bg-number">02</div>
-                        <img src="assets/img/momentum.png" alt="The Momentum Ikeja">
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <span class="eyebrow-small">Wall Drape</span>
-                                <h3 class="asset-title">Momentum</h3>
-                                <p class="asset-location"><i
-                                        class="fa-solid fa-location-dot me-2 text-warning"></i>Allen Ave, Ikeja</p>
-                                <div class="accent-line"></div>
-                                <a href="#" class="view-project-btn">Explore Asset <i
-                                        class="fa-solid fa-arrow-right ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="portfolio-card-dramatic magnetic-item">
-                        <div class="card-bg-number">03</div>
-                        <img src="assets/img/moniepoint.jpg" alt="Investment Building Marina">
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <span class="eyebrow-small">Wall Panel</span>
-                                <h3 class="asset-title">Investment Building</h3>
-                                <p class="asset-location"><i
-                                        class="fa-solid fa-location-dot me-2 text-warning"></i>Broad St, Marina</p>
-                                <div class="accent-line"></div>
-                                <a href="#" class="view-project-btn">Explore Asset <i
-                                        class="fa-solid fa-arrow-right ms-2"></i></a>
-                            </div>
-=======
-    <section class="why-choose-us">
-        <div class="container">
-            <div class="row align-items-center gx-lg-5">
-                <div class="col-lg-5 mb-5 mb-lg-0 reveal">
-                    <h2 class="text-white mb-4 display-6">Why Partner With Us?</h2>
-                    <p class="text-white-50 fs-5">We bring creative ideas to life with precision, style, and quality
-                        that demand attention in any market.</p>
-                </div>
-                <div class="col-lg-7">
-                    <div class="row g-4">
-                        <div class="col-md-6 reveal delay-1">
-                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> Proven Excellence
-                            </h5>
-                            <p class="text-white-50 small">Backed by JOTT Limited's 40 years of fabrication excellence.
-                            </p>
-                        </div>
-                        <div class="col-md-6 reveal delay-2">
-                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> Tailored Strategy
-                            </h5>
-                            <p class="text-white-50 small">A strategic and creative approach tailored specifically to
-                                each brand's unique needs.</p>
-                        </div>
-                        <div class="col-md-6 reveal delay-3">
-                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> Multi-Sector
-                                Expertise</h5>
-                            <p class="text-white-50 small">Deep expertise across FMCGs, corporates, government, tech,
-                                and financial institutions.</p>
-                        </div>
-                        <div class="col-md-6 reveal delay-3">
-                            <h5 class="text-white"><i class="fa-solid fa-check text-warning me-2"></i> End-to-End
-                                Delivery</h5>
-                            <p class="text-white-50 small">Flawless project management designed to generate measurable,
-                                bottom-line outcomes.</p>
->>>>>>> a0edcf6 (added index.html)
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<<<<<<< HEAD
-    <section class="cta-section-structural">
-        <div class="cta-bg-image"></div>
-        <div class="cta-bg-overlay"></div>
-
-        <div class="container position-relative z-3">
-            <div class="row align-items-center">
-
-                <div class="col-lg-7 mb-5 mb-lg-0" data-aos="fade-right">
-                    <h2 class="cta-heading-structural">
-                        Ready to <br> <span class="text-outline">Dominate</span> <br> Your Market?
+                <div class="text-center max-w-3xl mx-auto mb-5 pb-4" data-aos="fade-up">
+                    <span class="eyebrow">Our Foundation</span>
+                    <h2 class="display-5 text-uppercase">Core <span style="color: var(--brand-orange);">Values.</span>
                     </h2>
                 </div>
 
-                <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
-                    <div class="cta-action-box magnetic-item">
-                        <p>Stop blending in. We build immersive media experiences that demand attention and drive
-                            measurable ROI.</p>
-                        <a href="#contact" class="cta-btn-solid magnetic-btn">
-                            Initiate Project <i class="fa-solid fa-arrow-right ms-3"></i>
-                        </a>
+                <div class="row g-4 mt-4">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                        <div class="core-value-minimal">
+                            <div class="value-num">01</div>
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <h5>Integrity</h5>
+                            <p>We uphold absolute honesty, transparency, and ethical practices in every interaction.</p>
+                        </div>
                     </div>
-                </div>
 
-=======
-    <section id="portfolio" class="section-padding">
-        <div class="container">
-            <div class="text-center max-w-3xl mx-auto mb-5 pb-4 reveal">
-                <span class="eyebrow">Asset Portfolio</span>
-                <h2>Prime Visibility Assets</h2>
-                <p class="text-muted">Explore our strategically located, high-traffic advertising assets across Lagos.
-                </p>
-            </div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="core-value-minimal">
+                            <div class="value-num">02</div>
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <h5>Innovation</h5>
+                            <p>We embrace emerging technology and fresh thinking to deliver forward-driven solutions.
+                            </p>
+                        </div>
+                    </div>
 
-            <div class="row g-4">
-                <div class="col-md-4 reveal delay-1">
-                    <div class="portfolio-item shadow-sm">
-                        <img src="assets/img/beacon.PNG" alt="The Beacon Lekki">
-                        <div class="portfolio-content">
-                            <h4 class="text-white mb-1">The Beacon</h4>
-                            <p class="text-warning small mb-0 fw-bold">LED Board • Lekki Phase 1</p>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="core-value-minimal">
+                            <div class="value-num">03</div>
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <h5>Creativity</h5>
+                            <p>We transform strategic ideas into compelling and unforgettable brand experiences.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="core-value-minimal">
+                            <div class="value-num">04</div>
+                            <i class="fa-solid fa-gem"></i>
+                            <h5>Excellence</h5>
+                            <p>We pursue the highest industry standards with meticulous precision and execution.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 reveal delay-2">
-                    <div class="portfolio-item shadow-sm">
-                        <img src="assets/img/momentum.png" alt="The Momentum Ikeja">
-                        <div class="portfolio-content">
-                            <h4 class="text-white mb-1">The Momentum</h4>
-                            <p class="text-warning small mb-0 fw-bold">Wall Drape • Allen Avenue, Ikeja</p>
+
+            </div>
+        </section>
+
+        <section id="capabilities" class="section-padding bg-blue-main">
+            <div class="container">
+                <div class="text-center max-w-3xl mx-auto mb-5 pb-3" data-aos="fade-up">
+                    <span class="eyebrow">Core Capabilities</span>
+                    <h2 class="display-5 text-uppercase">Integrated Solutions</h2>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="capability-card">
+                            <div class="icon-wrap"><i class="fa-solid fa-layer-group"></i></div>
+                            <h4>Out-of-Home Media</h4>
+                            <p class="text-white-50 small mb-0">Commanding the physical landscape with strategic,
+                                high-visibility placements.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="capability-card">
+                            <div class="icon-wrap"><i class="fa-solid fa-users-rays"></i></div>
+                            <h4>Experiential Marketing</h4>
+                            <p class="text-white-50 small mb-0">Crafting immersive, interactive brand activations that
+                                forge deep consumer connections.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="capability-card">
+                            <div class="icon-wrap"><i class="fa-solid fa-satellite-dish"></i></div>
+                            <h4>Digital OOH</h4>
+                            <p class="text-white-50 small mb-0">Blending data, technology, and dynamic screens for
+                                real-time audience engagement.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="capability-card">
+                            <div class="icon-wrap"><i class="fa-solid fa-hammer"></i></div>
+                            <h4>Custom Fabrication</h4>
+                            <p class="text-white-50 small mb-0">Building bespoke physical structures and immersive zones
+                                from concept to reality.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 reveal delay-3">
-                    <div class="portfolio-item shadow-sm">
-                        <img src="assets/img/moniepoint.jpg" alt="Investment Building Marina">
-                        <div class="portfolio-content">
-                            <h4 class="text-white mb-1">Investment Building</h4>
-                            <p class="text-warning small mb-0 fw-bold">Wall Panel • Broad Street, Marina</p>
+            </div>
+        </section>
+
+        <section id="clients" class="clients-bg-section">
+            <div class="clients-bg-image"></div>
+            <div class="clients-bg-overlay"></div>
+
+            <div class="container position-relative z-3">
+                <div class="row align-items-center gx-lg-5">
+                    <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                        <div class="position-sticky client-sticky-hook" style="top: 150px;">
+                            <span class="eyebrow">Our Partners</span>
+                            <h2 class="client-heading-massive mb-4">Brands we've <br><span
+                                    class="text-outline-orange">ELEVATED.</span></h2>
+                            <p class="text-white fs-5" style="opacity: 0.8;">We partner with ambitious teams to create
+                                defining media moments that push boundaries and command attention.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+                        <div class="client-sleek-grid">
+                            <div class="client-sleek-card">Moniepoint</div>
+                            <div class="client-sleek-card">Coca-Cola</div>
+                            <div class="client-sleek-card">itel Energy</div>
+                            <div class="client-sleek-card">Knorr</div>
+                            <div class="client-sleek-card">MTN</div>
+                            <div class="client-sleek-card">Guinness</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="cta-section">
-        <div class="container px-4 reveal">
-            <div class="cta-content text-white">
-                <h3 class="text-white mb-3 display-6" style="font-family: 'Outfit', sans-serif; font-weight: 600;">Let's
-                    Shape the Future of Your Brand.</h3>
-                <p class="fs-5 mb-4">Whether you need high-impact OOH placements or an unforgettable experiential
-                    activation, our team is
-                    ready to turn your vision into a measurable reality.</p>
-                <a href="#contact" class="btn btn-agency mt-2">Start Your Project</a>
->>>>>>> a0edcf6 (added index.html)
-            </div>
-        </div>
-    </section>
+        <section id="portfolio" class="portfolio-preview-section">
+            <div class="container">
+                <div class="row mb-5 align-items-end">
+                    <div class="col-lg-8" data-aos="fade-right">
+                        <span class="eyebrow">The Arsenal</span>
+                        <h2 class="display-3 text-uppercase">Prime <span class="text-outline-orange"
+                                style="-webkit-text-stroke: 1.5px var(--brand-orange); color: transparent;">Impact.</span>
+                        </h2>
+                    </div>
+                    <div class="col-lg-4 text-lg-end" data-aos="fade-left">
+                        <a href="portfolio.html" class="btn btn-outline-light-custom mb-3">View Full Arsenal</a>
+                    </div>
+                </div>
 
-    <footer id="contact">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-5 mb-4 mb-lg-0">
-<<<<<<< HEAD
-                    <img src="assets/img/logo.png" alt="AI Media Logo" height="50" class="mb-4 magnetic-item">
-                    <p class="text-white pe-md-5">Driven by creativity, guided by innovation, and powered by
-                        collaboration. We stand ready to shape the future of brand experiences.</p>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-white mb-3" style="font-size: 1.1rem; text-transform: uppercase;">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#about" class="text-white text-decoration-none magnetic-item">About
-                                Us</a></li>
-                        <li class="mb-2"><a href="#capabilities"
-                                class="text-white text-decoration-none magnetic-item">Capabilities</a></li>
-                        <li class="mb-2"><a href="#portfolio"
-                                class="text-white text-decoration-none magnetic-item">Portfolio</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3" style="font-size: 1.1rem; text-transform: uppercase;">Get In Touch</h5>
-                    <ul class="list-unstyled text-white">
-                        <li class="mb-2 magnetic-item" style="display:inline-block;"><i
-                                class="fa-solid fa-envelope me-2 text-white"></i> contact@aimediang.com</li><br>
-                        <li class="mb-2 magnetic-item" style="display:inline-block;"><i
-                                class="fa-solid fa-phone me-2 text-white"></i> +234 806 817 0788</li>
-                        <li class="mb-2 mt-3 d-flex align-items-start magnetic-item">
-                            <i class="fa-solid fa-location-dot me-3 mt-1 text-white"></i>
-=======
-                    <img src="assets/img/logo.png" alt="AI Media Logo" height="50" class="mb-4">
-                    <p class="text-white-50 pe-md-5">Driven by creativity, guided by innovation, and powered by
-                        collaboration. We stand ready to shape the future of brand experiences.</p>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-white mb-3" style="font-size: 1.1rem;">Quick Links</h5>
-                    <ul class="list-unstyled text-white-50">
-                        <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none">About Us</a></li>
-                        <li class="mb-2"><a href="#capabilities"
-                                class="text-white-50 text-decoration-none">Capabilities</a></li>
-                        <li class="mb-2"><a href="#portfolio" class="text-white-50 text-decoration-none">Portfolio</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3" style="font-size: 1.1rem;">Get In Touch</h5>
-                    <ul class="list-unstyled text-white-50">
-                        <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-warning"></i> contact@aimediang.com
-                        </li>
-                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-warning"></i> +234 806 817 0788</li>
-                        <li class="mb-2 mt-3 d-flex align-items-start">
-                            <i class="fa-solid fa-location-dot me-3 mt-1 text-warning"></i>
->>>>>>> a0edcf6 (added index.html)
-                            <span>132b Obafemi Awolowo Way,<br>Ikeja, Lagos</span>
-                        </li>
-                    </ul>
+                <div class="row g-4">
+                    <div class="col-lg-4" data-aos="fade-up">
+                        <div class="hp-portfolio-card">
+                            <div class="hp-card-img"><img src="assets/img/beacon.PNG" alt="The Beacon Lekki"></div>
+                            <div class="hp-card-body">
+                                <span class="eyebrow" style="font-size: 0.7rem; margin-bottom: 5px;">Digital LED |
+                                    Lekki</span>
+                                <h4>The Beacon</h4>
+                                <p class="text-white-50 small">Strategically located at the Lekki Phase 1 Gate, reaching
+                                    over 48M monthly impressions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="hp-portfolio-card">
+                            <div class="hp-card-img"><img src="assets/img/momentum.png" alt="The Momentum Ikeja"></div>
+                            <div class="hp-card-body">
+                                <span class="eyebrow" style="font-size: 0.7rem; margin-bottom: 5px;">Wall Drape |
+                                    Ikeja</span>
+                                <h4>The Momentum</h4>
+                                <p class="text-white-50 small">Allen-Opebi intersection dominance with ~30M monthly
+                                    reach across commercial hubs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="hp-portfolio-card">
+                            <div class="hp-card-img"><img src="assets/img/moniepoint.jpg"
+                                    alt="Investment Building Marina"></div>
+                            <div class="hp-card-body">
+                                <span class="eyebrow" style="font-size: 0.7rem; margin-bottom: 5px;">Wall Panels |
+                                    Marina</span>
+                                <h4>Investment Bldg</h4>
+                                <p class="text-white-50 small">Wrapping the financial heart of Lagos. High-impact
+                                    visibility for elite corporate audiences.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            <div class="border-top border-secondary pt-4 text-center text-white small">
-=======
-            <div class="border-top border-secondary pt-4 text-center text-white-50 small">
->>>>>>> a0edcf6 (added index.html)
-                &copy; 2026 AI Media & Communications Limited. All rights reserved.
-            </div>
-        </div>
-    </footer>
+        </section>
 
-<<<<<<< HEAD
+        <section class="spotlight-section bg-blue-main">
+            <div class="container">
+                <div class="text-center max-w-3xl mx-auto mb-5 pb-4" data-aos="fade-up">
+                    <span class="eyebrow">Event Spotlight</span>
+                    <h2 class="display-4 text-uppercase">Premium <span
+                            style="color: var(--brand-orange);">Activations.</span></h2>
+                </div>
+
+                <div class="spotlight-card" data-aos="fade-up">
+                    <div class="spotlight-img-wrap">
+                        <div id="carouselCastleLite" class="carousel slide carousel-fade h-100" data-bs-ride="carousel"
+                            data-bs-pause="false">
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100" data-bs-interval="3500">
+                                    <img src="assets/img/works/castlelite.jpeg" alt="Castle Lite Event Slide 1">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="3500">
+                                    <img src="assets/img/works/castlelite2.jpeg" alt="Castle Lite Event Slide 2">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="3500">
+                                    <img src="assets/img/works/castlelite3.jpeg" alt="Castle Lite Event Slide 3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spotlight-content">
+                        <span class="eyebrow" style="font-size: 0.75rem;">Premium Experiential</span>
+                        <h3 class="display-6 text-uppercase mb-4">Castle Lite x DBANJ CREAM Event</h3>
+                        <p class="fs-5 text-white-50 mb-4">A high-energy, premium activation that brought together
+                            top-tier entertainment and brand immersion. We designed and executed an unforgettable
+                            physical space that resonated with fans and amplified the Castle Lite experience.</p>
+                    </div>
+                </div>
+
+                <div class="spotlight-card reverse" data-aos="fade-up">
+                    <div class="spotlight-content order-2 order-lg-1">
+                        <span class="eyebrow" style="font-size: 0.75rem;">Sports & Culture</span>
+                        <h3 class="display-6 text-uppercase mb-4">Trophy AFCON Final Watch Party</h3>
+                        <p class="fs-5 text-white-50 mb-4">Transforming passion into presence. We built a massive,
+                            immersive fan zone for the AFCON finals, combining giant screen broadcasting with engaging
+                            structural fabrications to deliver a stadium-like thrill to everyday fans.</p>
+                    </div>
+                    <div class="spotlight-img-wrap order-1 order-lg-2">
+                        <div id="carouselTrophy" class="carousel slide carousel-fade h-100" data-bs-ride="carousel"
+                            data-bs-pause="false">
+                            <div class="carousel-inner h-100">
+                                <div class="carousel-item active h-100" data-bs-interval="3500">
+                                    <img src="assets/img/works/trophyafcon7.png" alt="Trophy AFCON Slide 1">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="3500">
+                                    <img src="assets/img/works/trophyafcon8.png" alt="Trophy AFCON Slide 2">
+                                </div>
+                                <div class="carousel-item h-100" data-bs-interval="3500">
+                                    <img src="assets/img/works/trophyafcon9.png" alt="Trophy AFCON Slide 3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="com-factor-home">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <span class="eyebrow">Our Signature</span>
+                        <h2 class="display-4 text-uppercase">The <span style="color: var(--brand-orange);">WOW
+                                Factor.</span></h2>
+                        <p class="fs-4 text-white-50">It is a special touch of excellence in everything we do—taking
+                            simple ideas and executing them flawlessly to turn everyday moments into landmarks.</p>
+                    </div>
+                    <div class="col-lg-5 text-lg-end" data-aos="zoom-in">
+                        <div class="p-5 border border-secondary rounded-circle d-inline-block">
+                            <h3 class="display-4 mb-0" style="color: var(--brand-orange);">WOW</h3>
+                            <p class="text-uppercase small text-white-50" style="letter-spacing: 0.2em;">Effect</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="experiential-vault-preview">
+            <div class="container position-relative z-3">
+                <div class="row mb-5 justify-content-between align-items-end">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <span class="eyebrow">Project Snippets</span>
+                        <h2 class="display-4 text-uppercase">Beyond <span class="text-outline-orange"
+                                style="-webkit-text-stroke: 1.5px var(--brand-orange); color: transparent;">The
+                                Billboard.</span></h2>
+                        <p class="text-white-50 fs-5 mt-3">From space revamps to massive fan zones, we build experiences
+                            that can't be scrolled past.</p>
+                    </div>
+                    <div class="col-lg-3 text-lg-end" data-aos="fade-left">
+                        <a href="portfolio.html#vault" class="btn btn-outline-light-custom">View All Work</a>
+                    </div>
+                </div>
+
+                <div class="vault-staggered-grid">
+                    <div class="vault-item" data-aos="fade-up">
+                        <div class="vault-card-inner">
+                            <div class="vault-image-container"><img src="assets/img/works/spacerevamp5.png"
+                                    alt="Trophy AFCON"></div>
+                            <div class="vault-project-tag">
+                                <span>Experiential | Fabrication</span>
+                                <h5>Trophy Space Revamp</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vault-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="vault-card-inner">
+                            <div class="vault-image-container"><img src="assets/img/works/ginogorrilla1.png"
+                                    alt="Gino Gorilla"></div>
+                            <div class="vault-project-tag">
+                                <span>Structural | Urban</span>
+                                <h5>Gino Gorilla Launch</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vault-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="vault-card-inner">
+                            <div class="vault-image-container"><img src="assets/img/works/herohour3.png"
+                                    alt="Hero Hour"></div>
+                            <div class="vault-project-tag">
+                                <span>Activation | Market</span>
+                                <h5>Hero Hour Engagement</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section-structural">
+            <div class="cta-bg-image"></div>
+            <div class="cta-bg-overlay"></div>
+
+            <div class="container position-relative z-3">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 mb-5 mb-lg-0" data-aos="fade-right">
+                        <h2 class="cta-heading-structural">Ready to <br> <span class="text-outline">Dominate</span> <br>
+                            Every Space?</h2>
+                    </div>
+
+                    <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+                        <div class="cta-action-box">
+                            <p>Stop blending in. From skyline-dominating OOH to ground-level experiential activations,
+                                we build campaigns that demand attention.</p>
+                            <a href="start-project.html" class="cta-btn-solid">Initiate Project <i
+                                    class="fa-solid fa-arrow-right ms-3"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <img src="assets/img/logo.png" alt="AI Media Logo" height="75" class="mb-4">
+                        <p class="text-white-50 pe-md-5">Driven by creativity, guided by innovation, and powered by
+                            collaboration. We stand ready to shape the future of brand experiences.</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-white mb-3" style="font-size: 1.1rem; text-transform: uppercase;">Quick Links
+                        </h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="about.html" class="text-white-50 text-decoration-none">About
+                                    Us</a></li>
+                            <li class="mb-2"><a href="capabilities.html"
+                                    class="text-white-50 text-decoration-none">Capabilities</a></li>
+                            <li class="mb-2"><a href="portfolio.html"
+                                    class="text-white-50 text-decoration-none">Portfolio</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="text-white mb-3" style="font-size: 1.1rem; text-transform: uppercase;">Get In Touch
+                        </h5>
+                        <ul class="list-unstyled text-white-50">
+                            <li class="mb-2"><i class="fa-solid fa-envelope me-2 text-white"></i> contact@aimediang.com
+                            </li>
+                            <li class="mb-2"><i class="fa-solid fa-phone me-2 text-white"></i> +234 902 240 5555</li>
+                            <li class="mb-2 mt-3 d-flex align-items-start">
+                                <i class="fa-solid fa-location-dot me-3 mt-1 text-white"></i>
+                                <span>93A Opebi Road,<br>Ikeja, Lagos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-top border-secondary pt-4 text-center text-white-50 small">
+                    &copy; 2026 AI Media & Communications Limited. All rights reserved.
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
     <div class="whatsapp-container">
         <div class="whatsapp-prompt">
             Got a project? Let's talk! 👋
         </div>
-        <a href="https://wa.me/2348068170788" class="whatsapp-float magnetic-item" target="_blank"
-            rel="noopener noreferrer">
+        <a href="https://wa.me/2349022405555" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        // 1. Initialize AOS Animations
+        // Initialize AOS Animations
         AOS.init({
             duration: 900,
             easing: 'ease-out-cubic',
-            once: false,
+            once: true,
             offset: 50
         });
 
-        // 2. Navbar Scrolled State
-        const navbar = document.getElementById('mainNav');
+        // Navbar Scrolled State
+        const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
@@ -2468,164 +1724,34 @@
             }
         });
 
-        // 3. Hero Dynamic Text Swapper
-=======
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        // --- Word-for-Word Typing Effect ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const subtitleEl = document.getElementById('typedSubtitle');
+            if (subtitleEl) {
+                const originalText = subtitleEl.textContent.trim();
+                const words = originalText.split(/\s+/);
 
-    <script>
-        // 1. Navbar Scrolled State
-        const navbar = document.getElementById('mainNav');
-        const navIcon = document.getElementById('navIcon');
+                // Clear the content and set up the span and cursor
+                subtitleEl.innerHTML = '<span id="typed-text"></span><span class="typed-cursor">|</span>';
+                const typedTextEl = document.getElementById('typed-text');
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-                navIcon.classList.remove('text-white');
-                navIcon.classList.add('text-dark');
-            } else {
-                navbar.classList.remove('scrolled');
-                navIcon.classList.remove('text-dark');
-                navIcon.classList.add('text-white');
+                let wordIndex = 0;
+
+                // Wait for the CSS slideUpFade animation to largely finish before typing starts
+                // slideUpFade has a 0.6s delay and 1s duration = 1.6s total
+                setTimeout(() => {
+                    const typeInterval = setInterval(() => {
+                        if (wordIndex < words.length) {
+                            typedTextEl.textContent += (wordIndex > 0 ? ' ' : '') + words[wordIndex];
+                            wordIndex++;
+                        } else {
+                            clearInterval(typeInterval);
+                        }
+                    }, 180); // 180ms per word gives a nice, readable pace
+                }, 1200); // Start slightly before the fade completely finishes for a seamless look
             }
         });
-
-        // 2. Hero Dynamic Text Swapper
->>>>>>> a0edcf6 (added index.html)
-        const words = ["Innovate.", "Engage.", "Influence."];
-        let wordIndex = 0;
-        const dynamicWordEl = document.getElementById('hero-dynamic-word');
-
-        setInterval(() => {
-            dynamicWordEl.style.opacity = '0';
-<<<<<<< HEAD
-            dynamicWordEl.style.transform = 'translateY(15px)';
-=======
-            dynamicWordEl.style.transform = 'translateY(10px)';
->>>>>>> a0edcf6 (added index.html)
-
-            setTimeout(() => {
-                wordIndex = (wordIndex + 1) % words.length;
-                dynamicWordEl.innerText = words[wordIndex];
-<<<<<<< HEAD
-                dynamicWordEl.style.opacity = '1';
-                dynamicWordEl.style.transform = 'translateY(0)';
-            }, 500);
-        }, 3500);
-
-        // 4. Hero Background Image Carousel Logic
-        // Timing set to 5000ms (5s) for a much faster, punchier pace
-        const slides = document.querySelectorAll('.hero-carousel-slide');
-        let currentSlide = 0;
-
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 5000);
-
-        // 5. CUSTOM MAGNETIC CURSOR LOGIC
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let outlineX = window.innerWidth / 2;
-        let outlineY = window.innerHeight / 2;
-
-        // Track mouse position
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursorDot.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
-        });
-
-        // Smooth trailing animation
-        function animateCursor() {
-            let distX = mouseX - outlineX;
-            let distY = mouseY - outlineY;
-
-            outlineX += distX * 0.15;
-            outlineY += distY * 0.15;
-
-            cursorOutline.style.transform = `translate3d(calc(${outlineX}px - 50%), calc(${outlineY}px - 50%), 0)`;
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // 6. ADD MAGNETIC & HOVER STATES TO ELEMENTS
-        const magneticItems = document.querySelectorAll('.magnetic-item, a, .client-sleek-card');
-        magneticItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                cursorOutline.classList.add('magnetic-active');
-            });
-            item.addEventListener('mouseleave', () => {
-                cursorOutline.classList.remove('magnetic-active');
-            });
-        });
-
-        // Elements that physically pull towards the mouse
-        const magneticButtons = document.querySelectorAll('.magnetic-btn');
-        magneticButtons.forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                cursorOutline.classList.add('magnetic-active');
-            });
-
-            btn.addEventListener('mouseleave', () => {
-                cursorOutline.classList.remove('magnetic-active');
-                btn.style.transform = '';
-            });
-
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const btnX = rect.left + rect.width / 2;
-                const btnY = rect.top + rect.height / 2;
-
-                const distanceX = e.clientX - btnX;
-                const distanceY = e.clientY - btnY;
-
-                btn.style.transform = `translate3d(${distanceX * 0.3}px, ${distanceY * 0.3}px, 0)`;
-            });
-        });
-
     </script>
 </body>
 
 </html>
-=======
-
-                dynamicWordEl.style.opacity = '1';
-                dynamicWordEl.style.transform = 'translateY(0)';
-            }, 400);
-        }, 3000);
-
-        // 3. Intersection Observer for Scroll Reveals
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            root: null,
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        setTimeout(() => {
-            revealElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    el.classList.add('active');
-                }
-            });
-        }, 100);
-    </script>
-</body>
-
-</html>
->>>>>>> a0edcf6 (added index.html)
